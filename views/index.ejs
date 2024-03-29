@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SHFMU "Gjon Serreqi"</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="/css/public-img/logo-skolla.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="/css/public-lib/animate/animate.min.css" rel="stylesheet" />
+    <link
+      href="/css/public-lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/public-css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="/css/public-css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <%- include('includes/_navbar.ejs') %>
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+      <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+          <img class="img-fluid" src="/css/public-img/carousel-1.jpg" alt="" />
+          <div
+            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+            style="background: rgba(24, 29, 56, 0.7)"
+          >
+            <div class="container">
+              <div class="row justify-content-start">
+                <div class="col-sm-10 col-lg-8">
+                  <h1 class="display-3 text-white animated slideInDown">
+                    "Gjon Serreqi"
+                  </h1>
+                  <p class="fs-5 text-white mb-4 pb-2">
+                    Ky website mban informacione rreth shkollës "Gjon Serreqi"
+                    në Ferizaj.
+                  </p>
+                  <a
+                    href="/team"
+                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                    >Shiko stafin</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+          <img class="img-fluid" src="/css/public-img/carousel-2.jpg" alt="" />
+          <div
+            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+            style="background: rgba(24, 29, 56, 0.7)"
+          >
+            <div class="container">
+              <div class="row justify-content-start">
+                <div class="col-sm-10 col-lg-8">
+                  <h1 class="display-3 text-white animated slideInDown">
+                    Dituria është pasaporta për sukses
+                  </h1>
+                  <i class="fs-5 text-white mb-4 pb-2"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="section-title bg-white text-center text-primary px-3">
+            Lëndët
+          </h6>
+          <h1 class="mb-5">Çfarë mësojnë fëmijët</h1>
+        </div>
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="section-title bg-white text-center text-primary px-3 mb-4">
+            Të gjitha
+          </h6>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-language text-primary mb-4"></i>
+                <h5 class="mb-3">Gjuhë amtare</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: I - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-plus-minus text-primary mb-4"></i>
+                <h5 class="mb-3">Matematikë</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: I - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-image text-primary mb-4"></i>
+                <h5 class="mb-3">Art Figurativ</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: I - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-music text-primary mb-4"></i>
+                <h5 class="mb-3">Muzikë</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: I - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-sliders text-primary mb-4"></i>
+                <h5 class="mb-3">Mësim zgjedhor</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: I - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-person text-primary mb-4"></i>
+                <h5 class="mb-3">Edukatë Qytetare</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: I - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-comment text-primary mb-4"></i>
+                <h5 class="mb-3">Gjuhë angleze</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: II - IX</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-laptop-code text-primary mb-4"></i>
+                <h5 class="mb-3">T.I.K</h5>
+                <p class="text-primary">Ciklet: i lartë, i ulët</p>
+                <p class="text-primary">Klasat: V - IX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6
+            class="section-title bg-white text-center text-primary mt-5 px-3 mb-4"
+          >
+            Cikli i lartë
+          </h6>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-flask-vial text-primary mb-4"></i>
+                <h5 class="mb-3">Kimi</h5>
+                <p class="text-primary">Ciklet: i lartë</p>
+                <p class="text-primary">Klasat: VII - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i
+                  class="fa-solid fa-3x fa-clock-rotate-left text-primary mb-4"
+                ></i>
+                <h5 class="mb-3">Histori</h5>
+                <p class="text-primary">Ciklet: i lartë</p>
+                <p class="text-primary">Klasat: VI - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i
+                  class="fa-solid fa-3x fa-map-location-dot text-primary mb-4"
+                ></i>
+                <h5 class="mb-3">Gjeografi</h5>
+                <p class="text-primary">Ciklet: i lartë</p>
+                <p class="text-primary">Klasat: VI - IX</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item text-center pt-3">
+              <div class="p-4">
+                <i class="fa-solid fa-3x fa-fingerprint text-primary mb-4"></i>
+                <h5 class="mb-3">Biologi</h5>
+                <p class="text-primary">Ciklet: i lartë</p>
+                <p class="text-primary">Klasat: VI - IX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div
+            class="col-lg-6 wow fadeInUp"
+            data-wow-delay="0.1s"
+            style="min-height: 400px"
+          >
+            <div class="position-relative h-100">
+              <img
+                class="img-fluid position-absolute w-100 h-100"
+                src="/css/public-img/about.jpg"
+                alt=""
+                style="object-fit: cover"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <h6 class="section-title bg-white text-start text-primary pe-3">
+              Pse ne
+            </h6>
+            <h1 class="mb-4">Pse të n'a zgjidhni neve?</h1>
+            <p class="mb-4">
+              Zgjidhni shkollën tonë për një udhëtim të pasur të mësimit,
+              angazhimin tonë ndaj cilësisë së lartë dhe mbështetjen e një
+              ambienti miqësor dhe përkrahës. Shkolla jonë sjell përvojë të
+              pasur akademike, zhvillim personal dhe përkushtim të pandërprerë
+              ndaj suksesit të nxënësve.
+            </p>
+            <div class="row gy-2 gx-4 mb-4">
+              <div class="col-sm-6">
+                <p class="mb-0">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>Kujdesi për
+                  nxënësit
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="mb-0">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>Program i
+                  pasur
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="mb-0">
+                  <i class="fa fa-arrow-right text-primary me-2"></i
+                  >Bashkëpunimi prindëror
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="mb-0">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>Përparimi
+                  akademik
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="mb-0">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>Inovacioni
+                  dhe kreativiteti
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="mb-0">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>Kujdesi për
+                  mirëqenien
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          <h6 class="section-title bg-white text-center text-primary px-3">
+            Stafi
+          </h6>
+          <h1 class="mb-5">Personeli drejtues</h1>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="team-item bg-light">
+              <div class="overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="/css/public-img/team-1.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                class="position-relative d-flex justify-content-center"
+                style="margin-top: -23px"
+              >
+                <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="text-center p-4">
+                <h5 class="mb-0">Filan Fisteku</h5>
+                <small>Drejtor</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="team-item bg-light">
+              <div class="overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="/css/public-img/team-2.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                class="position-relative d-flex justify-content-center"
+                style="margin-top: -23px"
+              >
+                <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="text-center p-4">
+                <h5 class="mb-0">Filane Fisteku</h5>
+                <small>Pedagoge</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="team-item bg-light">
+              <div class="overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="/css/public-img/team-3.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                class="position-relative d-flex justify-content-center"
+                style="margin-top: -23px"
+              >
+                <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="text-center p-4">
+                <h5 class="mb-0">Filan Fisteku</h5>
+                <small>Zëvendës drejtor</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="team-item bg-light">
+              <div class="overflow-hidden">
+                <img
+                  class="img-fluid"
+                  src="/css/public-img/team-4.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                class="position-relative d-flex justify-content-center"
+                style="margin-top: -23px"
+              >
+                <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="text-center p-4">
+                <h5 class="mb-0">Filan Fisteku</h5>
+                <small>Sekretar</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+        <div class="text-center">
+          <h6 class="section-title bg-white text-center text-primary px-3">
+            Shkrimet
+          </h6>
+          <h1 class="mb-5">Ç'thojnë nxënësit për ne</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+          <div class="testimonial-item text-center">
+            <img
+              class="border rounded-circle p-2 mx-auto mb-3"
+              src="/css/public-img/testimonial-1.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <h5 class="mb-0">Emri i nxënësit</h5>
+            <p>Klasa</p>
+            <div class="testimonial-text bg-light text-center p-4">
+              <p class="mb-0">
+                Shkolla më pëlqen shumë! Gjithmonë kënaqem sepse të gjithë
+                arsimtarët japin mësim shumë mirë.
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-item text-center">
+            <img
+              class="border rounded-circle p-2 mx-auto mb-3"
+              src="/css/public-img/testimonial-2.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <h5 class="mb-0">Emri i nxënësit</h5>
+            <p>Klasa</p>
+            <div class="testimonial-text bg-light text-center p-4">
+              <p class="mb-0">
+                Shkolla më pëlqen shumë! Gjithmonë kënaqem sepse të gjithë
+                arsimtarët japin mësim shumë mirë.
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-item text-center">
+            <img
+              class="border rounded-circle p-2 mx-auto mb-3"
+              src="/css/public-img/testimonial-3.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <h5 class="mb-0">Emri i nxënësit</h5>
+            <p>Klasa</p>
+            <div class="testimonial-text bg-light text-center p-4">
+              <p class="mb-0">
+                Shkolla më pëlqen shumë! Gjithmonë kënaqem sepse të gjithë
+                arsimtarët japin mësim shumë mirë.
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-item text-center">
+            <img
+              class="border rounded-circle p-2 mx-auto mb-3"
+              src="/css/public-img/testimonial-4.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <h5 class="mb-0">Emri i nxënësit</h5>
+            <p>Klasa</p>
+            <div class="testimonial-text bg-light text-center p-4">
+              <p class="mb-0">
+                Shkolla më pëlqen shumë! Gjithmonë kënaqem sepse të gjithë
+                arsimtarët japin mësim shumë mirë.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <%- include('includes/_footer') %>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/public-lib/wow/wow.min.js"></script>
+    <script src="/css/public-lib/easing/easing.min.js"></script>
+    <script src="/css/public-lib/waypoints/waypoints.min.js"></script>
+    <script src="/css/public-lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/css/public-js/main.js"></script>
+  </body>
+</html>

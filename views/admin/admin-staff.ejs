@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paneli i të dhënave</title>
+  <link rel="shortcut icon" type="image/png" href="/css/admin-img/logos/logo-skolla.png" />
+  <link rel="stylesheet" href="/css/admin-css/styles.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="100%" alt=""/>
+        </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/admin-subjects" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-book"></i>
+                </span>
+                <span class="hide-menu">Lëndët</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/admin-staff" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-user"></i>
+                </span>
+                <span class="hide-menu">Stafi</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/admin-plan" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-file"></i>
+                </span>
+                <span class="hide-menu">Plani Zhvillimor</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/admin-news" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-envelope"></i>
+                </span>
+                <span class="hide-menu">Lajmet</span>
+              </a>
+            </li>   
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link"
+                href="/admin-auth-edit"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa-solid fa-user-pen"></i>
+                </span>
+                <span class="hide-menu">Përditëso Llogarinë</span>
+              </a>
+            </li>    
+            <li class="sidebar-item mt-5">
+              <a
+                class="sidebar-link"
+                href="/auth/logout"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa-solid fa-arrow-right-from-bracket" style="color: #e72d18;"></i>
+                </span>
+                <span class="hide-menu"  style="color: #e72d18;">Shkyçuni</span>
+              </a>
+            </li>    
+          </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+
+      <div class="container-fluid">
+        <h2 style="font-size: 36px; margin-bottom: 50px">
+          Faqja për menaxhimin e
+          <b><u style="color: #5d87ff">Stafit</u></b> !
+        </h2>
+        <form action="/staff/register-staff" id="staffForm" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Emri & Mbiemri</label>
+            <input id="staff-name" type="text" class="form-control" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Foto</label>
+            <input id="staff-photo" type="file" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">CV-ja</label>
+            <input id="staff-cv" type="file" class="form-control">
+          </div>
+          <div class="d-flex">
+            <label class="me-1 mt-1" for="ciklet">Roli:</label>
+            <select id="staff-role" style="border: none; padding: 5px;">
+              <option value="Arsimtar/e" selected>Arsimtar/e</option>
+              <option value="Drejtor/eshë">Drejtor/eshë</option>
+              <option value="Psikolog/e">Psikolog/e</option>
+            </select>
+
+            <label class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
+            <select id="staff-subject"  style="border: none; padding: 5px;">
+              <option value="Biologji" selected>Biologji</option>
+              <option value="Matematikë">Matematikë</option>
+              <option value="Anglisht">Anglisht</option>
+              <option value="Kimi">Kimi</option>
+            </select>
+          </div>
+          <button type="submit" class="mt-3 btn btn-primary">Ruaj</button>
+        </form>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nr.</th>
+              <th>Emri</th>
+              <th>Foto</th>
+              <th>CV-ja</th>
+              <th>Roli</th>
+              <th>Lënda</th>
+              <th>Opsione</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="/js/staffList.js"></script>
+  <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
+  <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/css/admin-js/sidebarmenu.js"></script>
+  <script src="/css/admin-js/app.min.js"></script>
+  <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    const staffForm = document.getElementById('staffForm');
+
+    staffForm.addEventListener('submit', async(e)=> {
+    e.preventDefault();
+    const staffName = document.getElementById('staff-name').value;
+    const staffPhoto = document.getElementById('staff-photo').value;
+    const staffCV = document.getElementById('staff-cv').value;
+    const staffRole = document.getElementById('staff-role').value;
+    const staffSubject = document.getElementById('staff-subject').value;
+
+    const res = await fetch('/staff/register-staff', {
+      method: 'POST', 
+      body: JSON.stringify({
+        staffName,
+        staffPhoto,
+        staffCV,
+        staffRole,
+        staffSubject
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res.json();
+
+    if (data.status === 'success') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Punonjësi u shtua!',
+            text: 'Sukses!',
+            timer: 2000,
+            showConfirmButton: false,
+          }).then(() => {
+            location.assign('/admin-staff');
+          });
+        }
+  }); 
+  </script>
+</body>
+
+</html>

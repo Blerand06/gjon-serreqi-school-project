@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kyqja - SHFMU "Gjon Serreqi"</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="/css/public-img/logo-skolla.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="/css/public-lib/animate/animate.min.css" rel="stylesheet" />
+    <link
+      href="/css/public-lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/public-css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="/css/public-css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include('includes/_navbar.ejs') %>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <h1 class="display-3 text-white animated slideInDown">Kyqja</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header End -->
+
+    <div class="container-xxl pt-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div
+            class="col-lg-5 mx-auto order-1"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <form
+              action="/auth/login"
+              method="post"
+              class="form-box"
+              id="loginForm"
+            >
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Email"
+                    id="email"
+                    name="email"
+                    for="email"
+                  />
+                </div>
+                <div class="col-12 mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    id="password"
+                    name="password"
+                    for="password"
+                  />
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="control control--checkbox">
+                    <span class="caption">Më mbaj mend</span>
+                    <input type="checkbox" id="rememberMe" name="rememberMe" />
+                    <div class="control__indicator"></div>
+                  </label>
+                </div>
+
+                <div class="col-12 text text-center">
+                  <input type="submit" value="Lidhu" class="btn btn-primary" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('includes/_footer') %>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/public-lib/wow/wow.min.js"></script>
+    <script src="/css/public-lib/easing/easing.min.js"></script>
+    <script src="/css/public-lib/waypoints/waypoints.min.js"></script>
+    <script src="/css/public-lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      const loginForm = document.getElementById('loginForm');
+
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const rememberMe = document.getElementById('rememberMe').checked;
+
+        const res = await fetch('/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({
+            email,
+            password,
+            rememberMe,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await res.json();
+        console.log(data);
+
+        if (data.status === 'success') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Mirë se erdhët!',
+            text: 'Sukses!',
+            timer: 1600,
+            showConfirmButton: false,
+          }).then(() => {
+            location.assign('/admin-subjects');
+          });
+        } else if (data.status === 'failure') {
+          Swal.fire({
+            icon: 'error',
+            title: 'Ju lutem jepni të dhënat e sakta!',
+            text: 'Gabim',
+            showConfirmButton: true,
+          }).then(() => {
+            location.assign('/admin-subjects');
+          });
+        }
+      });
+    </script>
+
+    <!-- Template Javascript -->
+    <script src="/css/public-js/main.js"></script>
+  </body>
+</html>
