@@ -66,7 +66,7 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link"
-                href="/admin-auth-edit"
+                href="/admin-auth-edit/<%= user._id %>"
                 aria-expanded="false"
               >
                 <span>
@@ -99,19 +99,21 @@
     <div class="body-wrapper">
 
       <div class="container-fluid">
-        <h2 style="font-size: 36px; margin-bottom: 50px">
+        <a href="/"><h2 style="font-size: 36px; margin-bottom: 50px">
           Faqja për menaxhimin e
           <b><u style="color: #5d87ff">Lëndëve</u></b> !
-        </h2>
-        <form action="/subjects/register-subjects" id="subjectsForm" method="post">
+        </h2></a>   
+        <form action="/subjects/register-subjects" id="subjectsForm" method="post" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Emri i Lëndës</label>
             <input type="text" class="form-control" id="Subject-Name" aria-describedby="emailHelp">
           </div>
+
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Ikona</label>
-            <input type="file" class="form-control" id="Icon" aria-describedby="emailHelp">
+            <input type="file" class="form-control" id="Icon" aria-describedby="emailHelp" name="iconImage" accept="image/*">
           </div>
+
           <div class="d-flex">
             <label class="me-1 mt-1" for="ciklet">Cikli:</label>
             <select required name="Cycle" id="Cycle" style="border: none; padding: 5px;">
@@ -119,7 +121,6 @@
               <option value="I lartë">I lartë</option>
               <option value="Të gjithët">Të gjithët</option>
             </select>
-
             <label class="ms-4 me-1 mt-1" for="ciklet">Klasët</label>
             <select required name="Class" id="Class" style="border: none; padding: 5px;">
               <option value="I-IX" selected>I - IX</option>
@@ -162,22 +163,20 @@
 
     subjectsForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
+    const formData = new FormData()
     const subjectName = document.getElementById('Subject-Name').value;
-    const subjectIcon = document.getElementById('Icon').value;
+    const subjectIcon = document.getElementById('Icon').files[0];
     const subjectCycle = document.getElementById('Cycle').value;
     const subjectClass = document.getElementById('Class').value;  
-
+    formData.append('subjectName',subjectName)
+    formData.append('subjectCycle',subjectCycle)
+    formData.append('subjectClass',subjectClass)
+      if(subjectIcon){
+        formData.append('iconImage',subjectIcon)
+      }
     const res = await fetch('/subjects/register-subjects', {
       method: 'POST', 
-      body: JSON.stringify({
-        subjectName,
-        subjectIcon,
-        subjectCycle,
-        subjectClass
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      body: formData
     });
     const data = await res.json();
 

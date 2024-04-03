@@ -65,6 +65,29 @@ const updatePlan = async (req, res) => {
     });
 };
 
-const deletePlan = async (req, res) => {};
+const deletePlan = async (req, res) => {
+  const id = req.body.id;
+
+  Plan.findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot Delete with id: ${id}. Maybe the ID is wrong`,
+          status: 'fail',
+        });
+      } else {
+        res.status(200).send({
+          message: 'Subject was deleted successfully!',
+          status: 'success',
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        message: `Could not delete subject with id: ${id}`,
+        status: 'fail',
+      });
+    });
+};
 
 module.exports = { registerPlan, getPlan, updatePlan, deletePlan };

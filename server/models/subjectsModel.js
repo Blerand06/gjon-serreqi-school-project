@@ -7,8 +7,9 @@ const subjectsSchema = mongoose.Schema(
       required: true,
     },
     subjectIcon: {
-      contentType: String,
+      filename: String,
       data: Buffer,
+      contentType: String,
     },
     subjectCycle: {
       type: String,

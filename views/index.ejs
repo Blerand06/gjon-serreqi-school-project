@@ -81,7 +81,7 @@
                     në Ferizaj.
                   </p>
                   <a
-                    href="/team"
+                    href="/staff"
                     class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                     >Shiko stafin</a
                   >
@@ -126,90 +126,21 @@
             Të gjitha
           </h6>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-language text-primary mb-4"></i>
-                <h5 class="mb-3">Gjuhë amtare</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: I - IX</p>
+          <div class="row g-4">
+          <%for(let i =0;i<subject.length;i++){%>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+              <div class="service-item text-center pt-3">
+                <div class="p-4">
+                  <i class="fa-solid fa-3x fa-language text-primary mb-4"></i>
+                  <h5 class="mb-3">Lënda: <%=subject[i].subjectName%></h5>
+                  <p class="text-primary">Ciklet: <%=subject[i].subjectCycle%></p>
+                  <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-plus-minus text-primary mb-4"></i>
-                <h5 class="mb-3">Matematikë</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: I - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-image text-primary mb-4"></i>
-                <h5 class="mb-3">Art Figurativ</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: I - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-music text-primary mb-4"></i>
-                <h5 class="mb-3">Muzikë</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: I - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-sliders text-primary mb-4"></i>
-                <h5 class="mb-3">Mësim zgjedhor</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: I - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-person text-primary mb-4"></i>
-                <h5 class="mb-3">Edukatë Qytetare</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: I - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-comment text-primary mb-4"></i>
-                <h5 class="mb-3">Gjuhë angleze</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: II - IX</p>
-              </div>
-            </div>
-          </div>
+            <%}%>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-laptop-code text-primary mb-4"></i>
-                <h5 class="mb-3">T.I.K</h5>
-                <p class="text-primary">Ciklet: i lartë, i ulët</p>
-                <p class="text-primary">Klasat: V - IX</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
           <h6
             class="section-title bg-white text-center text-primary mt-5 px-3 mb-4"
           >
@@ -263,6 +194,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <!-- Service End -->
 
@@ -350,6 +282,7 @@
           <h1 class="mb-5">Personeli drejtues</h1>
         </div>
         <div class="row g-4">
+          <% for(let i = 0; i < staff.length; i++){%>
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="team-item bg-light">
               <div class="overflow-hidden">
@@ -376,104 +309,13 @@
                 </div>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Drejtor</small>
+                <h5 class="mb-0"><%= staff[i].staffName %></h5>
+                <small><%= staff[i].staffRole %></small> - 
+                <small><%= staff[i].staffSubject %></small>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="team-item bg-light">
-              <div class="overflow-hidden">
-                <img
-                  class="img-fluid"
-                  src="/css/public-img/team-2.jpg"
-                  alt=""
-                />
-              </div>
-              <div
-                class="position-relative d-flex justify-content-center"
-                style="margin-top: -23px"
-              >
-                <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div class="text-center p-4">
-                <h5 class="mb-0">Filane Fisteku</h5>
-                <small>Pedagoge</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="team-item bg-light">
-              <div class="overflow-hidden">
-                <img
-                  class="img-fluid"
-                  src="/css/public-img/team-3.jpg"
-                  alt=""
-                />
-              </div>
-              <div
-                class="position-relative d-flex justify-content-center"
-                style="margin-top: -23px"
-              >
-                <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Zëvendës drejtor</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="team-item bg-light">
-              <div class="overflow-hidden">
-                <img
-                  class="img-fluid"
-                  src="/css/public-img/team-4.jpg"
-                  alt=""
-                />
-              </div>
-              <div
-                class="position-relative d-flex justify-content-center"
-                style="margin-top: -23px"
-              >
-                <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Sekretar</small>
-              </div>
-            </div>
-          </div>
+          <%}%>
         </div>
       </div>
     </div>
@@ -568,6 +410,7 @@
     <script src="/css/public-lib/easing/easing.min.js"></script>
     <script src="/css/public-lib/waypoints/waypoints.min.js"></script>
     <script src="/css/public-lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/javascript/showSubjects.js"></script>
 
     <!-- Template Javascript -->
     <script src="/css/public-js/main.js"></script>

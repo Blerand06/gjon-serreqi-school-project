@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const bodyparser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
 const app = express();
 
 dotenv.config({ path: '.env' });
@@ -29,6 +30,7 @@ app.use('/subjects', require('./server/routes/subjectsRoutes'));
 app.use('/staff', require('./server/routes/staffRoutes'));
 app.use('/plan', require('./server/routes/planRoutes'));
 app.use('/news', require('./server/routes/newsRoutes'));
+app.use('/uploads', express.static('server/uploads'));
 
 app.listen(PORT, () => {
   connectDB();

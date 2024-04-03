@@ -25,7 +25,7 @@ router.get('/admin-subjects', requireAuth, services.adminSubjectsPage);
 router.get('/admin-subjects/:id', requireAuth, services.adminSubjectsPageEdit);
 
 // Routing Pages (PRIVATE/ADMIN - EDITS)
-router.get('/admin-auth-edit', requireAuth, services.adminAuthPageEdit);
+router.get('/admin-auth-edit/:id', requireAuth, services.adminAuthPageEdit);
 
 router.get('/admin-news-edit', requireAuth, services.adminNewsPageEdit);
 router.get('/admin-plan-edit', requireAuth, services.adminPlanPageEdit);

@@ -2,13 +2,20 @@ const News = require('../models/newsModel');
 const Subject = require('../models/subjectsModel');
 const Staff = require('../models/staffModel');
 const Plan = require('../models/planModel');
+const User = require('../models/authModel');
 
 // Rendering Pages (PUBLIC)
-const mainPage = (req, res) => {
-  res.render('index');
+const mainPage = async (req, res) => {
+  try {
+    const subject = await Subject.find();
+    const staff = await Staff.find();
+    res.render('index', { subject, staff });
+  } catch (e) {
+    res.redirect('back');
+  }
 };
 const staffPage = (req, res) => {
-  res.render('staff', { staff });
+  res.render('staff');
 };
 const aboutPage = (req, res) => {
   res.render('about');
@@ -45,7 +52,7 @@ const adminSubjectsPage = async (req, res) => {
 // Rendering Pages (PRIVATE/ADMIN - EDITS)
 const adminAuthPageEdit = async (req, res) => {
   try {
-    const user = req.user;
+    const user = await User.findById(req.params.id);
     res.render('admin/admin-auth-edit', { user });
   } catch (error) {
     res.redirect('back');

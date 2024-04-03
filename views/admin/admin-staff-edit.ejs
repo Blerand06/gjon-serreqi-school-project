@@ -95,7 +95,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link"
-                  href="/admin-auth-edit"
+                  href="/admin-auth-edit/<%= user._id %>"
                   aria-expanded="false"
                 >
                   <span><i class="fa-solid fa-user-pen"></i></span>
@@ -156,16 +156,16 @@
             <div class="d-flex">
               <label class="me-1 mt-1" for="staff-role">Roli:</label>
               <select id="staff-role" style="border: none; padding: 5px">
-                <option value="i-ulet" selected>Arsimtar/re</option>
-                <option value="i-larte">Drejtor/eshë</option>
-                <option value="te-dyte">Psikolog/e</option>
+                <option value="Arsimtar/e" <%= staff.staffRole === "Arsimtar/e"? "selected" : "" %>>Arsimtar/re</option>
+                <option value="Drejtor/eshë" <%= staff.staffRole === "Drejtor/eshë"? "selected" : "" %>>Drejtor/eshë</option>
+                <option value="Psikolog/e" <%= staff.staffRole === "Psikolog/e"? "selected" : "" %>>Psikolog/e</option>
               </select>
               <label class="ms-4 me-1 mt-1" for="staff-subject">Lënda:</label>
               <select id="staff-subject" style="border: none; padding: 5px">
-                <option value="i-ulet" selected>Biologji</option>
-                <option value="i-larte">Matematikë</option>
-                <option value="te-dyte">Anglisht</option>
-                <option value="te-dyte">Kimi</option>
+                <option value="Biologji" selected>Biologji</option>
+                <option value="Matematikë">Matematikë</option>
+                <option value="Anglisht">Anglisht</option>
+                <option value="Kimi">Kimi</option>
               </select>
             </div>
             <button type="submit" class="mt-3 btn btn-primary">Ndrysho</button>

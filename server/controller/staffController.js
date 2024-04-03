@@ -68,6 +68,29 @@ const updateStaff = async (req, res) => {
     });
 };
 
-const deleteStaff = async (req, res) => {};
+const deleteStaff = async (req, res) => {
+  const id = req.body.id;
+
+  Staff.findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot Delete with id: ${id}. Maybe the ID is wrong`,
+          status: 'fail',
+        });
+      } else {
+        res.status(200).send({
+          message: 'Staff was deleted successfully!',
+          status: 'success',
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        message: `Could not delete staff with id: ${id}`,
+        status: 'fail',
+      });
+    });
+};
 
 module.exports = { registerStaff, getStaff, updateStaff, deleteStaff };

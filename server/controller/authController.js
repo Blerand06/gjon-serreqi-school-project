@@ -1,5 +1,6 @@
 const User = require('../models/authModel');
 const jwt = require('jsonwebtoken');
+const Subject = require('../models/subjectsModel');
 
 const maxAge = 10 * 30 * 24 * 60;
 const createToken = (id) => {
@@ -37,7 +38,6 @@ const register = async (req, res) => {
     const user = await User.create({ email, password });
     res.status(201).json({ user: user._id, status: 'success' });
   } catch (error) {
-    // console.error(error.errors);
     res.status(500).json({
       status: 'failure',
       message:
@@ -66,7 +66,8 @@ const update = async (req, res) => {
   }
 
   const id = req.body.id;
-  const password = req.body.password;
+  const email = req.body.authEmail;
+  const password = req.body.authPassword;
   delete req.body.password;
 
   User.findByIdAndUpdate(id, req.body, { new: true })
@@ -74,10 +75,12 @@ const update = async (req, res) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot Update user with ${id}. Maybe user not found.`,
+          status: 'fail',
         });
       } else {
-        if (password) {
+        if (password && email) {
           data.password = password;
+          data.email = email;
           await data.save();
         }
         res.send({ data, status: 'success' });

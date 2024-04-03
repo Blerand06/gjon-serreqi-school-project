@@ -17,9 +17,9 @@ const getPlan = async () => {
                                   Plan[i]._id
                                 }"><span style= "color: orange;">Ndrysho</span></a>
                                 <span style="margin: 0px 5px;">/</span>  
-                                <a style="cursor: pointer;"><span id="${
+                                <a style="cursor: pointer;"><span delete="true" style="color: red;" id="${
                                   Plan[i]._id
-                                }" delete="true" style="color: red;">Fshi</span></a>
+                                }">Fshi</span></a>
                                 </td>
                                 `;
         tr.innerHTML = trContent;

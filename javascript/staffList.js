@@ -20,9 +20,9 @@ const getStaff = async () => {
                                   Staff[i]._id
                                 }"><span style= "color: orange;">Ndrysho</span></a>
                                 <span style="margin: 0px 5px;">/</span>  
-                                <a style="cursor: pointer;"><span style="color: red;" id="${
+                                <a style="cursor: pointer;"><span style="color: red;" delete="true" id="${
                                   Staff[i]._id
-                                }" delete="true">Fshi</span></a>
+                                }">Fshi</span></a>
                                 </td>
         `;
         tr.innerHTML = trContent;

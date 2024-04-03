@@ -66,7 +66,7 @@
             <li class="sidebar-item">
               <a
                 class="sidebar-link"
-                href="/admin-auth-edit"
+                href="/admin-auth-edit/<%= user._id %>"
                 aria-expanded="false"
               >
                 <span>
@@ -117,20 +117,20 @@
           <div class="d-flex">
             <label class="me-1 mt-1" for="ciklet">Cikli:</label>
             <select required name="Cycle" id="Cycle" style="border: none; padding: 5px;">
-              <option value="I ulët" selected>I ulët</option>
-              <option value="I lartë">I lartë</option>
-              <option value="Të gjithët">Të gjithët</option>
+                <option value="I ulët" <%= subject.subjectCycle === "I ulët" ? "selected" : "" %>>I ulët</option>
+                <option value="I lartë" <%= subject.subjectCycle === "I lartë" ? "selected" : "" %>>I lartë</option>
+                <option value="Të gjithët" <%= subject.subjectCycle === "Të gjithët" ? "selected" : "" %>>Të gjithët</option>
             </select>
-
+        
             <label class="ms-4 me-1 mt-1" for="ciklet">Klasët</label>
             <select required name="Class" id="Class" style="border: none; padding: 5px;">
-              <option value="I-IX" selected>I - IX</option>
-              <option value="II-IX">II - IX</option>
-              <option value="VI-IX">VI - IX</option>
-              <option value="I-V">I - V</option>
-              <option value="VII-IX">VII - IX</option>
+                <option value="I-IX" <%= subject.subjectClass === "I-IX" ? "selected" : "" %>>I - IX</option>
+                <option value="II-IX" <%= subject.subjectClass === "II-IX" ? "selected" : "" %>>II - IX</option>
+                <option value="VI-IX" <%= subject.subjectClass === "VI-IX" ? "selected" : "" %>>VI - IX</option>
+                <option value="I-V" <%= subject.subjectClass === "I-V" ? "selected" : "" %>>I - V</option>
+                <option value="VII-IX" <%= subject.subjectClass === "VII-IX" ? "selected" : "" %>>VII - IX</option>
             </select>
-          </div>
+        </div>
           <div class=" form-check">
           </div>
           <button type="submit" class="btn btn-primary mb-5">Ndrysho</button>
