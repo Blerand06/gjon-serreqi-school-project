@@ -92,13 +92,13 @@
                     for="password"
                   />
                 </div>
-                <div class="col-12 mb-3">
+                <!-- <div class="col-12 mb-3">
                   <label class="control control--checkbox">
                     <span class="caption">Më mbaj mend</span>
                     <input type="checkbox" id="rememberMe" name="rememberMe" />
                     <div class="control__indicator"></div>
                   </label>
-                </div>
+                </div> -->
 
                 <div class="col-12 text text-center">
                   <input type="submit" value="Lidhu" class="btn btn-primary" />
@@ -133,14 +133,13 @@
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const rememberMe = document.getElementById('rememberMe').checked;
+        // const rememberMe = document.getElementById('rememberMe').checked;
 
         const res = await fetch('/auth/login', {
           method: 'POST',
           body: JSON.stringify({
             email,
             password,
-            rememberMe,
           }),
           headers: {
             'Content-Type': 'application/json',

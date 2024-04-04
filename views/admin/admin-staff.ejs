@@ -124,7 +124,7 @@
               <option value="Psikolog/e">Psikolog/e</option>
             </select>
 
-            <label class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
+            <label id="subject-placeholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
             <select id="staff-subject"  style="border: none; padding: 5px;">
               <option value="Biologji" selected>Biologji</option>
               <option value="Matematikë">Matematikë</option>
@@ -161,6 +161,28 @@
   <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>
+
+    const staffRoleSelect = document.getElementById('staff-role');
+    const staffSubjectSelect = document.getElementById('staff-subject');
+    const subjectPlaceholder = document.getElementById('subject-placeholder');
+
+    function toggleSubjectSelect() {
+      const selectedRole = staffRoleSelect.value;
+      if (selectedRole === 'Arsimtar/e') {
+        staffSubjectSelect.style.display = 'block';
+        subjectPlaceholder.style.display =  'block';
+      } else { 
+        staffSubjectSelect.style.display = 'none';
+        subjectPlaceholder.style.display =  'none';
+      }
+    }
+
+    toggleSubjectSelect();
+
+    staffRoleSelect.addEventListener('change', toggleSubjectSelect);
+
+  </script>
+  <script>
     const staffForm = document.getElementById('staffForm');
 
     staffForm.addEventListener('submit', async(e)=> {
@@ -169,7 +191,8 @@
     const staffPhoto = document.getElementById('staff-photo').value;
     const staffCV = document.getElementById('staff-cv').value;
     const staffRole = document.getElementById('staff-role').value;
-    const staffSubject = document.getElementById('staff-subject').value;
+    let staffSubject = document.getElementById('staff-subject').value;
+    if(staffRole === 'Drejtor/eshë' || staffRole=== 'Psikolog/e') {staffSubject=''}; 
 
     const res = await fetch('/staff/register-staff', {
       method: 'POST', 
