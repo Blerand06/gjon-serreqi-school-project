@@ -20,7 +20,7 @@ const staffSchema = mongoose.Schema(
     },
     staffSubject: {
       type: String,
-      enum: ['Biologji', 'Matematikë', 'Anglisht', 'Kimi'],
+      enum: ['Biologji', 'Matematikë', 'Anglisht', 'Kimi', ''],
     },
   },
   { timestamps: true }

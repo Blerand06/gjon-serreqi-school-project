@@ -17,8 +17,9 @@ const mainPage = async (req, res) => {
 const staffPage = (req, res) => {
   res.render('staff');
 };
-const aboutPage = (req, res) => {
-  res.render('about');
+const aboutPage = async (req, res) => {
+  const about = await Plan.find();
+  res.render('about', { about });
 };
 const loginPage = (req, res) => {
   res.render('login');
@@ -47,6 +48,9 @@ const adminSubjectsPage = async (req, res) => {
   } catch (error) {
     res.redirect('back');
   }
+};
+const adminContactPage = async (req, res) => {
+  res.render('admin/admin-contact');
 };
 
 // Rendering Pages (PRIVATE/ADMIN - EDITS)
@@ -109,6 +113,7 @@ module.exports = {
   adminPlanPage,
   adminStaffPage,
   adminSubjectsPage,
+  adminContactPage,
 
   // PRIVATE/ADMIN - EDITS exporting
   adminAuthPageEdit,

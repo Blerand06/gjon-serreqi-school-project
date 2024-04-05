@@ -128,6 +128,7 @@
         </div>
           <div class="row g-4">
           <%for(let i =0;i<subject.length;i++){%>
+            <% if (subject[i].subjectCycle === "Të gjithët") { %>
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
               <div class="service-item text-center pt-3">
                 <div class="p-4">
@@ -139,6 +140,7 @@
               </div>
             </div>
             <%}%>
+            <%}%>
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 
           <h6
@@ -148,51 +150,47 @@
           </h6>
         </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-flask-vial text-primary mb-4"></i>
-                <h5 class="mb-3">Kimi</h5>
-                <p class="text-primary">Ciklet: i lartë</p>
-                <p class="text-primary">Klasat: VII - IX</p>
+          <% for(let i = 0; i < subject.length; i++) { %>
+            <% if (subject[i].subjectCycle === "I lartë") { %>
+              <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                    <i class="fa-solid fa-3x fa-flask-vial text-primary mb-4"></i>
+                    <h5 class="mb-3">Lënda: <%= subject[i].subjectName %></h5>
+                    <p class="text-primary">Ciklet: <%= subject[i].subjectCycle %></p>
+                    <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i
-                  class="fa-solid fa-3x fa-clock-rotate-left text-primary mb-4"
-                ></i>
-                <h5 class="mb-3">Histori</h5>
-                <p class="text-primary">Ciklet: i lartë</p>
-                <p class="text-primary">Klasat: VI - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i
-                  class="fa-solid fa-3x fa-map-location-dot text-primary mb-4"
-                ></i>
-                <h5 class="mb-3">Gjeografi</h5>
-                <p class="text-primary">Ciklet: i lartë</p>
-                <p class="text-primary">Klasat: VI - IX</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item text-center pt-3">
-              <div class="p-4">
-                <i class="fa-solid fa-3x fa-fingerprint text-primary mb-4"></i>
-                <h5 class="mb-3">Biologi</h5>
-                <p class="text-primary">Ciklet: i lartë</p>
-                <p class="text-primary">Klasat: VI - IX</p>
-              </div>
-            </div>
-          </div>
+            <% } %>
+          <% } %>
         </div>
+
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+
+          <h6
+            class="section-title bg-white text-center text-primary mt-5 px-3 mb-4"
+          >
+            Cikli i ulët
+          </h6>
+        </div>
+        <div class="row g-4">
+          <% for(let i = 0; i < subject.length; i++) { %>
+            <% if (subject[i].subjectCycle === "I ulët") { %>
+              <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                    <i class="fa-solid fa-3x fa-flask-vial text-primary mb-4"></i>
+                    <h5 class="mb-3">Lënda: <%= subject[i].subjectName %></h5>
+                    <p class="text-primary">Ciklet: <%= subject[i].subjectCycle %></p>
+                    <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
+                  </div>
+                </div>
+              </div>
+            <% } %>
+          <% } %>
+        </div>
+        
       </div>
 
     </div>

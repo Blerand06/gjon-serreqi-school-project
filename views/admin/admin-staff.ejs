@@ -62,6 +62,18 @@
                 </span>
                 <span class="hide-menu">Lajmet</span>
               </a>
+            </li>
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link"
+                href="/admin-contact"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa-solid fa-message"></i>
+                </span>
+                <span class="hide-menu">Emailet e Pranuara</span>
+              </a>
             </li>   
             <li class="sidebar-item">
               <a
@@ -191,8 +203,8 @@
     const staffPhoto = document.getElementById('staff-photo').value;
     const staffCV = document.getElementById('staff-cv').value;
     const staffRole = document.getElementById('staff-role').value;
-    let staffSubject = document.getElementById('staff-subject').value;
-    if(staffRole === 'Drejtor/eshë' || staffRole=== 'Psikolog/e') {staffSubject=''}; 
+    const staffSubject = document.getElementById('staff-subject').value;
+    
 
     const res = await fetch('/staff/register-staff', {
       method: 'POST', 

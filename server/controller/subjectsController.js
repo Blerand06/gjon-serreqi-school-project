@@ -3,8 +3,6 @@ const path = require('path');
 
 const registerSubject = async (req, res) => {
   const { subjectName, subjectCycle, subjectClass } = req.body;
-  const subjectIcon = req.files;
-  console.log(req.files);
 
   try {
     let subject_number = 1;
@@ -16,7 +14,6 @@ const registerSubject = async (req, res) => {
     }
     const newSubject = new Subject({
       subjectName,
-      subjectIcon: subjectIcon.path,
       subjectCycle,
       subjectClass,
       subject_number,

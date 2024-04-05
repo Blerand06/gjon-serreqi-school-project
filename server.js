@@ -30,6 +30,7 @@ app.use('/subjects', require('./server/routes/subjectsRoutes'));
 app.use('/staff', require('./server/routes/staffRoutes'));
 app.use('/plan', require('./server/routes/planRoutes'));
 app.use('/news', require('./server/routes/newsRoutes'));
+app.use('/contact', require('./server/routes/contactRoutes'));
 app.use('/uploads', express.static('server/uploads'));
 
 app.listen(PORT, () => {
