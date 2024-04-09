@@ -158,7 +158,12 @@
             Faqja për menaxhimin e
             <b><u style="color: #5d87ff">Lajmeve</u></b> !
           </h2>
-          <form action="/news/register-news" id="newsForm" method="post">
+          <form
+            action="/news/register-news"
+            id="newsForm"
+            method="post"
+            enctype="multipart/form-data"
+          >
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Titulli</label>
               <input
@@ -170,14 +175,19 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Foto</label>
-              <input type="file" class="form-control" id="newsPhoto" />
+              <input
+                name="newsPhotoFile"
+                type="file"
+                class="form-control"
+                id="newsPhoto"
+              />
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Përshkrimi</label
               >
               <textarea
-                type="text   "
+                type="text"
                 class="form-control"
                 id="newsDescription"
                 aria-describedby="emailHelp"
@@ -197,7 +207,7 @@
                 >Titulli Meta</label
               >
               <input
-                type="text   "
+                type="text"
                 class="form-control"
                 id="newsMetaTitle"
                 aria-describedby="emailHelp"
@@ -208,12 +218,13 @@
                 >Përshkrimi Meta</label
               >
               <textarea
-                type="text   "
+                type="text"
                 class="form-control"
                 id="newsMetaDescription"
                 aria-describedby="emailHelp"
               ></textarea>
             </div>
+
             <button type="submit" class="btn btn-primary">Ruaj</button>
           </form>
 
@@ -247,8 +258,9 @@
 
       newsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const formData = new FormData();
         const newsTitle = document.getElementById('newsTitle').value;
-        const newsPhoto = document.getElementById('newsPhoto').value;
+        const newsPhoto = document.getElementById('newsPhoto').files[0];
         const newsDescription =
           document.getElementById('newsDescription').value;
         const newsTag = document.getElementById('newsTag').value;
@@ -256,20 +268,16 @@
         const newsMetaDescription = document.getElementById(
           'newsMetaDescription'
         ).value;
+        formData.append('newsTitle', newsTitle);
+        formData.append('newsPhotoFile', newsPhoto);
+        formData.append('newsDescription', newsDescription);
+        formData.append('newsTag', newsTag);
+        formData.append('newsMetaTitle', newsMetaTitle);
+        formData.append('newsMetaDescription', newsMetaDescription);
 
         const res = await fetch('/news/register-news', {
           method: 'POST',
-          body: JSON.stringify({
-            newsTitle,
-            newsTitle,
-            newsDescription,
-            newsTag,
-            newsMetaTitle,
-            newsMetaDescription,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          body: formData,
         });
         const data = await res.json();
 
@@ -278,7 +286,7 @@
             icon: 'success',
             title: 'Lajmet u shtuan!',
             text: 'Sukses!',
-            timer: 2000,
+            timer: 1500,
             showConfirmButton: false,
           }).then(() => {
             location.assign('/admin-news');

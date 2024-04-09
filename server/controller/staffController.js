@@ -18,8 +18,8 @@ const registerStaff = async (req, res) => {
     }
     const newStaff = new Staff({
       staffName,
-      staffPhoto,
-      staffCV,
+      staffPhoto: req.files['photoFile'][0].filename,
+      staffCV: req.files['cvFile'][0].filename,
       staffRole,
       staffSubject,
       staff_number,

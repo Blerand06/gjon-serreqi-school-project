@@ -19,7 +19,8 @@ const staffPage = (req, res) => {
 };
 const aboutPage = async (req, res) => {
   const about = await Plan.find();
-  res.render('about', { about });
+  const subject = await Subject.find();
+  res.render('about', { about, subject });
 };
 const loginPage = (req, res) => {
   res.render('login');

@@ -119,14 +119,14 @@
       <div class="d-flex justify-content-center">
 
         <div class="container-fluid">
-          <form action="/plan/register-plan" id="planForm" method="post">
+          <form action="/plan/register-plan" id="planForm" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Viti</label>
               <input type="text" class="form-control" id="planYear" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Dokumenti</label>
-              <input type="file" class="form-control" id="planDocument" aria-describedby="emailHelp">
+              <input name="planDocumentFile" type="file" class="form-control" id="planDocument" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Ruaj</button>
           </form>
@@ -161,18 +161,19 @@
 
     planForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
+    const formData = new FormData()
     const planYear = document.getElementById('planYear').value;
-    const planDocument = document.getElementById('planDocument').value;
+    const planDocument = document.getElementById('planDocument').files[0];
+    formData.append('planYear', planYear)
+    
+    if (planDocument) {
+      formData.append('planDocumentFile', planDocument)
+    }
+
 
     const res = await fetch('/plan/register-plan', {
       method: 'POST', 
-      body: JSON.stringify({
-        planYear,
-        planDocument
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      body: formData
     });
     const data = await res.json();
 
@@ -181,7 +182,7 @@
             icon: 'success',
             title: 'Plani Zhvillimor u shtua!',
             text: 'Sukses!',
-            timer: 2000,
+            timer: 1500,
             showConfirmButton: false,
           }).then(() => {
             location.assign('/admin-plan');

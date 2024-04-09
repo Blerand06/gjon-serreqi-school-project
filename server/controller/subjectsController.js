@@ -1,8 +1,7 @@
 const Subject = require('../models/subjectsModel');
-const path = require('path');
 
 const registerSubject = async (req, res) => {
-  const { subjectName, subjectCycle, subjectClass } = req.body;
+  const { subjectName, subjectCycle, subjectClass, subjectIcon } = req.body;
 
   try {
     let subject_number = 1;
@@ -16,6 +15,7 @@ const registerSubject = async (req, res) => {
       subjectName,
       subjectCycle,
       subjectClass,
+      subjectIcon: req.file.filename,
       subject_number,
     });
 

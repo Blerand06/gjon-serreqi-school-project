@@ -13,7 +13,7 @@ const registerPlan = async (req, res) => {
     }
     const newPlan = new Plan({
       planYear,
-      planDocument,
+      planDocument: req.file.filename,
       plan_number,
     });
 

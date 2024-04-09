@@ -7,8 +7,7 @@ const planSchema = mongoose.Schema(
       required: true,
     },
     planDocument: {
-      contentType: String,
-      data: Buffer,
+      type: String,
     },
   },
   { timestamps: true }

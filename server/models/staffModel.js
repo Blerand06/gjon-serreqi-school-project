@@ -7,12 +7,10 @@ const staffSchema = mongoose.Schema(
       required: true,
     },
     staffPhoto: {
-      contentType: String,
-      data: Buffer,
+      type: String,
     },
     staffCV: {
-      contentType: String,
-      data: Buffer,
+      type: String,
     },
     staffRole: {
       type: String,
