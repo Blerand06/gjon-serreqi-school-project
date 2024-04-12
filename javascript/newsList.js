@@ -10,7 +10,9 @@ const getNews = async () => {
         const trContent = `
         <td>${i + 1}</td>
         <td>${News[i].newsTitle}</td>
-        <td>-</td>
+        <td><img src="/uploads/${
+          News[i].newsPhoto
+        }"style="width: 30px; height: 30px; object-fit: cover;"></img></td>
         <td>${News[i].newsDescription}</td>
         <td>${News[i].newsTag}</td>
         <td>${News[i].newsMetaTitle}</td>

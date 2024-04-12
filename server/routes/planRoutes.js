@@ -22,7 +22,7 @@ const upload = multer({
 
 router.post(
   '/register-plan',
-  upload.single('planPhotoFile'),
+  upload.single('planDocumentFile'),
   controller.registerPlan
 );
 router.get('/get-plan', controller.getPlan);

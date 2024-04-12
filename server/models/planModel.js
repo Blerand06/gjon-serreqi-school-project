@@ -8,6 +8,7 @@ const planSchema = mongoose.Schema(
     },
     planDocument: {
       type: String,
+      required: true,
     },
   },
   { timestamps: true }

@@ -3,6 +3,7 @@ const Subject = require('../models/subjectsModel');
 const Staff = require('../models/staffModel');
 const Plan = require('../models/planModel');
 const User = require('../models/authModel');
+const moment = require('moment');
 
 // Rendering Pages (PUBLIC)
 const mainPage = async (req, res) => {
@@ -20,13 +21,15 @@ const staffPage = (req, res) => {
 const aboutPage = async (req, res) => {
   const about = await Plan.find();
   const subject = await Subject.find();
-  res.render('about', { about, subject });
+  const plan = await Plan.find();
+  res.render('about', { about, subject, plan });
 };
 const loginPage = (req, res) => {
   res.render('login');
 };
-const newsPage = (req, res) => {
-  res.render('news');
+const newsPage = async (req, res) => {
+  const news = await News.find();
+  res.render('news', { news, moment });
 };
 const contactPage = (req, res) => {
   res.render('contact');

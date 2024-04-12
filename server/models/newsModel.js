@@ -7,8 +7,7 @@ const newsSchema = mongoose.Schema(
       required: true,
     },
     newsPhoto: {
-      contentType: String,
-      data: Buffer,
+      type: String,
     },
     newsDescription: {
       type: String,

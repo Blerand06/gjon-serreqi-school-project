@@ -157,17 +157,21 @@
             ></iframe>
           </div>
           <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-            <form>
+            <form
+              action="/contact/register-contact"
+              method="post"
+              id="contactForm"
+            >
               <div class="row g-3">
                 <div class="col-md-12">
                   <div class="form-floating">
                     <input
                       type="email"
                       class="form-control"
-                      id="email"
-                      placeholder="Email-i juaj"
+                      id="contactEmail"
+                      placeholder="Emaili juaj"
                     />
-                    <label for="email">Email-i juaj</label>
+                    <label for="email">Emaili juaj</label>
                   </div>
                 </div>
                 <div class="col-12">
@@ -175,7 +179,7 @@
                     <input
                       type="text"
                       class="form-control"
-                      id="subject"
+                      id="contactTitle"
                       placeholder="Titulli"
                     />
                     <label for="subject">Titulli</label>
@@ -186,7 +190,7 @@
                     <textarea
                       class="form-control"
                       placeholder="Mesazhi"
-                      id="message"
+                      id="contactMessage"
                       style="height: 150px"
                     ></textarea>
                     <label for="message">Mesazhi</label>
@@ -219,6 +223,52 @@
     <script src="/css/public-lib/easing/easing.min.js"></script>
     <script src="/css/public-lib/waypoints/waypoints.min.js"></script>
     <script src="/css/public-lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      const contactForm = document.getElementById('contactForm');
+
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const contactEmail = document.getElementById('contactEmail').value;
+        const contactTitle = document.getElementById('contactTitle').value;
+        const contactMessage = document.getElementById('contactMessage').value;
+
+        const res = fetch('/contact/register-contact', {
+          method: 'POST',
+          body: JSON.stringify({
+            contactEmail,
+            contactTitle,
+            contactMessage,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = res.json();
+        console.log(data);
+
+        if (data.status === 'success') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Mesazhi është dërguar',
+            text: 'Sukses!',
+            timer: 1600,
+            showConfirmButton: false,
+          }).then(() => {
+            location.assign('/');
+          });
+        } else if (data.status === 'failure') {
+          Swal.fire({
+            icon: 'error',
+            title: 'Ju lutem jepni kriteret e nevojshme!',
+            text: 'Gabim',
+            showConfirmButton: true,
+          }).then(() => {
+            location.assign('/contact');
+          });
+        }
+      });
+    </script>
 
     <!-- Template Javascript -->
     <script src="/css/public-js/main.js"></script>

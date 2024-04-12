@@ -269,11 +269,14 @@
           'newsMetaDescription'
         ).value;
         formData.append('newsTitle', newsTitle);
-        formData.append('newsPhotoFile', newsPhoto);
         formData.append('newsDescription', newsDescription);
         formData.append('newsTag', newsTag);
         formData.append('newsMetaTitle', newsMetaTitle);
         formData.append('newsMetaDescription', newsMetaDescription);
+
+        if (newsPhoto) {
+          formData.append('newsPhotoFile', newsPhoto);
+        }
 
         const res = await fetch('/news/register-news', {
           method: 'POST',

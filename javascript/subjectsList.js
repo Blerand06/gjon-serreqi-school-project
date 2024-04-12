@@ -10,7 +10,9 @@ const getSubjects = async () => {
         const trContent = `
                                 <td>${i + 1}</td>
                                 <td>${Subjects[i].subjectName}</td>
-                                <td>-</td>
+                                <td><img src="/uploads/${
+                                  Subjects[i].subjectIcon
+                                }"style="width: 30px; height: 30px; object-fit: cover;"></img></td>
                                 <td>${Subjects[i].subjectCycle}</td>
                                 <td>${Subjects[i].subjectClass}</td>
 

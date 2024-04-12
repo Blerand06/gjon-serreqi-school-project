@@ -2,11 +2,15 @@
 <html lang="en">
 
 <head>
+    <%moment.locale('sq')%>
     <meta charset="utf-8">
     <title>Lajmet - SHFMU "Gjon Serreqi"</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+
+    <!-- Meta from input -->
+    <meta name="title" content="<%= news.newsMetaTitle %>">
+    <meta name="description" content="<%= news.newsMetaDescription %>">
+    <meta name="keywords" content="<%= news.newsTag %>" >
 
     <!-- Favicon -->
     <link href="/css/public-img/logo-skolla.png" rel="icon">
@@ -49,87 +53,26 @@
     </div>
     <!-- Header End -->
 
-    <div class="untree_co-section">
+      <div class="untree_co-section">
         <div class="container-xxl pt-5 wow fadeInUp" data-wow-delay="0.1s">
           <div class="row align-items-stretch">
-            <div class="col-lg-6 mb-4"  data-aos="fade-up" data-aos-delay="100">
-              <div class="media-h d-flex h-100">
-                <figure>
-                  <img class="news-image" src="https://raisingchildren.net.au/__data/assets/image/0033/48894/learning-baby-preschool-narrow.jpg" alt="Image">
-                </figure>
-                <div class="media-h-body">
-                    <h2 class="mb-3"><a class="news-text" href="#">Nxenësi fiton garën ne nivel ndërkombëtar</a></h2>
-                 <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> 20 Janar, 2024</span></div>
-                  <p class="mt-3">Nxënësi i klasës së shatë Filan Fisteku sot fitoi garën "Math Kids Kosova" që u mbajt në Fushë Kosovë. Filani u intervistua nga shumë media Kosvare dh gjithashtu shkoi sikur musafir ne emisionin e mëngjesit të RTK-së.</p>
-                </div>
-              </div>
-            </div>
+            
+            <% for (let i = 0; i < news.length; i++) {%>
             <div class="col-lg-6 mb-4"  data-aos="fade-up" data-aos-delay="200">
               <div class="media-h d-flex h-100">
                 <figure>
-                  <img class="news-image" src="https://tenneyschool.com/wp-content/uploads/2018/12/competition.jpg" alt="Image">
+                  <img class="news-image" src="/uploads/<%- news[i].newsPhoto %>" alt="Image">
                 </figure>
                 <div class="media-h-body">
-                    <h2 class="mb-3"><a class="news-text" href="#">Nxenësi fiton garën ne nivel ndërkombëtar</a></h2>
-                 <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> 20 Janar, 2024 </span><i cl></i></div>
-                  <p class="mt-3">Nxënësi i klasës së shatë Filan Fisteku sot fitoi garën "Math Kids Kosova" që u mbajt në Fushë Kosovë. Filani u intervistua nga shumë media Kosvare dh gjithashtu shkoi sikur musafir ne emisionin e mëngjesit të RTK-së.</p>
+                  <h2 class="mb-3"><a class="news-text" href="#"><%= news[i].newsTitle %></a></h2>
+                 <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> <%= moment(news[i].createdAt).format('D MMMM, YYYY') %> </span><i cl></i></div>
+                  <p class="mt-3"><%= news[i].newsDescription %></p>
                 </div>
               </div>
             </div>
-    
-            <div class="col-lg-6 mb-4"  data-aos="fade-up" data-aos-delay="100">
-              <div class="media-h d-flex h-100">
-                <figure>
-                  <img class="news-image" src="https://elearningindustry.com/wp-content/uploads/2021/04/create-effective-online-learning-that-kids-will-love.png" alt="Image">
-                </figure>
-                <div class="media-h-body">
-                    <h2 class="mb-3"><a class="news-text" href="#">Nxenësi fiton garën ne nivel ndërkombëtar</a></h2>
-                 <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> 20 Janar, 2024 </span></div>
-                  <p class="mt-3">Nxënësi i klasës së shatë Filan Fisteku sot fitoi garën "Math Kids Kosova" që u mbajt në Fushë Kosovë. Filani u intervistua nga shumë media Kosvare dh gjithashtu shkoi sikur musafir ne emisionin e mëngjesit të RTK-së.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4"  data-aos="fade-up" data-aos-delay="200">
-              <div class="media-h d-flex h-100">
-                <figure>
-                  <img class="news-image" src="https://careerteachers.co.uk/wp-content/uploads/2023/12/pexels-rdne-stock-project-7092613-1-scaled.jpg" alt="Image">
-                </figure>
-                <div class="media-h-body">
-                    <h2 class="mb-3"><a class="news-text" href="#">Nxenësi fiton garën ne nivel ndërkombëtar</a></h2>
-                 <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> 20 Janar, 2024 </span><i cl></i></div>
-                  <p class="mt-3">Nxënësi i klasës së shatë Filan Fisteku sot fitoi garën "Math Kids Kosova" që u mbajt në Fushë Kosovë. Filani u intervistua nga shumë media Kosvare dh gjithashtu shkoi sikur musafir ne emisionin e mëngjesit të RTK-së.</p>
-                </div>
-              </div>
-            </div>
-    
-    
-            <div class="col-lg-6 mb-4"  data-aos="fade-up" data-aos-delay="100">
-              <div class="media-h d-flex h-100">
-                <figure>
-                  <img class="news-image" src="https://wpvip.edutopia.org/wp-content/uploads/2023/06/2K178XC-crop.jpg" alt="Image">
-                </figure>
-                <div class="media-h-body">
-                    <h2 class="mb-3"><a class="news-text" href="#">Nxenësi fiton garën ne nivel ndërkombëtar</a></h2>
-                   <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> 20 Janar, 2024 </span><i cl></i></div>
-                    <p class="mt-3">Nxënësi i klasës së shatë Filan Fisteku sot fitoi garën "Math Kids Kosova" që u mbajt në Fushë Kosovë. Filani u intervistua nga shumë media Kosvare dh gjithashtu shkoi sikur musafir ne emisionin e mëngjesit të RTK-së.</p>
-                  </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4"  data-aos="fade-up" data-aos-delay="200">
-              <div class="media-h d-flex h-100">
-                <figure>
-                  <img class="news-image" src="https://childrenswi.org/-/media/chwlibrary/newshub/2021/learn-to-read/learntoread9003.jpg?h=514&mw=900&w=900&hash=AB5C1AD40BD4DDEE989E54C23F8633E1" alt="Image">
-                </figure>
-                <div class="media-h-body">
-                  <h2 class="mb-3"><a class="news-text" href="#">Nxenësi fiton garën ne nivel ndërkombëtar</a></h2>
-                 <div class="post-info"><i class="fa-solid fa-calendar"></i><span class="text-primary"> 20 Janar, 2024 </span><i cl></i></div>
-                  <p class="mt-3">Nxënësi i klasës së shatë Filan Fisteku sot fitoi garën "Math Kids Kosova" që u mbajt në Fushë Kosovë. Filani u intervistua nga shumë media Kosvare dh gjithashtu shkoi sikur musafir ne emisionin e mëngjesit të RTK-së.</p>
-                </div>
-              </div>
-            </div>
+            <%}%>
     
           </div>
-    
       </div>
       
       <%- include('includes/_footer') %>

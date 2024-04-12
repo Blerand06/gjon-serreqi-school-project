@@ -10,11 +10,12 @@ const getStaff = async () => {
         const trContent = `
         <td>${i + 1}</td>
         <td>${Staff[i].staffName}</td>
-        <td>-</td>
+        <td><img src="/uploads/${
+          Staff[i].staffPhoto
+        }"style="width: 30px; height: 30px; object-fit: cover;"></img></td>
         <td>-</td>
         <td>${Staff[i].staffRole}</td>
         <td>${Staff[i].staffSubject}</td>
-        
         <td class="primary d-flex">
                                 <a href="/admin-staff/${
                                   Staff[i]._id

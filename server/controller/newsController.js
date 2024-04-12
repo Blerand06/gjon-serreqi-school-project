@@ -18,7 +18,6 @@ const registerNews = async (req, res) => {
     if (newsOnDb) {
       news_number = parseInt(newsOnDb.news_number) + 1;
     }
-    console.log(req.file);
 
     const newNews = new News({
       newsTitle,

@@ -37,3 +37,5 @@ app.listen(PORT, () => {
   connectDB();
   console.log(`You've been connected to PORT: ${PORT}!`);
 });
+
+// https://notepad.pw/mesazhet-shkolla
