@@ -14,11 +14,18 @@ const staffSchema = mongoose.Schema(
     },
     staffRole: {
       type: String,
-      enum: ['Arsimtar/e', 'Drejtor/eshë', 'Psikolog/e'],
+      enum: [
+        'Arsimtar/e',
+        'Drejtor/eshë',
+        'Psikolog/e',
+        'Mësues/e',
+        'Sekretar/eshë',
+        'Zëvendësdrejtor/e',
+      ],
     },
     staffSubject: {
       type: String,
-      enum: ['Biologji', 'Matematikë', 'Anglisht', 'Kimi', ''],
+      enum: ['Biologji', 'Matematikë', 'Anglisht', 'Kimi', 'Gjuhë Shqipe', ''],
     },
   },
   { timestamps: true }

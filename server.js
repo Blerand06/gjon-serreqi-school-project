@@ -38,4 +38,4 @@ app.listen(PORT, () => {
   console.log(`You've been connected to PORT: ${PORT}!`);
 });
 
-// https://notepad.pw/mesazhet-shkolla
+// https://notepad.pw/mesazhet-shkolla / https://termini.beauty/
