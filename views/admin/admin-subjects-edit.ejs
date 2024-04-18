@@ -19,8 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="100%" alt=""/>
-          </a>
+            <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
           </div>
@@ -100,7 +99,6 @@
               </a>
             </li>   
           </ul>
-
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -117,14 +115,14 @@
           <h3 style="font-size: 20px; margin-bottom: 35px">
             <b>Informatë</b>: Ju mund të ndryshoni Lëndën, Ikonën, Ciklin dhe Klasët, apo vetëm njëren prej tyre nëse dëshironi.
           </h3>
-        <form id="subjectsForm">
+        <form id="subjectsForm" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Emri i Lëndës</label>
             <input value="<%= subject.subjectName %>" type="text" class="form-control" id="Subject-Name" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Ikona</label>
-            <input value="<%= subject.subjectIcon %>" type="file" class="form-control" id="Icon" aria-describedby="emailHelp">
+            <input value="<%= subject.subjectIcon %>" type="file" class="form-control" id="Icon" aria-describedby="emailHelp" name="iconImage">
           </div>
           <div class="d-flex">
             <label class="me-1 mt-1" for="ciklet">Cikli:</label>
@@ -142,7 +140,7 @@
                 <option value="I-V" <%= subject.subjectClass === "I-V" ? "selected" : "" %>>I - V</option>
                 <option value="VII-IX" <%= subject.subjectClass === "VII-IX" ? "selected" : "" %>>VII - IX</option>
             </select>
-        </div>
+          </div>
           <div class=" form-check">
           </div>
           <button type="submit" class="btn btn-primary mb-5">Ndrysho</button>
@@ -161,23 +159,23 @@
 
     subjectsForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
+    const formData = new FormData()
+    
     const subjectName = document.getElementById('Subject-Name').value;
-    const subjectIcon = document.getElementById('Icon').value;
+    const subjectIcon = document.getElementById('Icon').files[0];
     const subjectCycle = document.getElementById('Cycle').value;
     const subjectClass = document.getElementById('Class').value;  
 
+    formData.append('id',location.pathname.split('/')[2])
+    formData.append('subjectName',subjectName)
+    formData.append('subjectCycle',subjectCycle)
+    formData.append('subjectClass',subjectClass)
+    formData.append('iconImage',subjectIcon)
+      
+
     const res = await fetch('/subjects/update-subjects', {
       method: 'PUT', 
-      body: JSON.stringify({
-        id: location.pathname.split('/')[2],
-        subjectName,
-        subjectIcon,
-        subjectCycle,
-        subjectClass
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      body: formData      
     });
     const data = await res.json();
 

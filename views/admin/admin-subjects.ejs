@@ -19,7 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="100%" alt=""/>
+            <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -72,7 +72,7 @@
                 <span>
                   <i class="fa-solid fa-message"></i>
                 </span>
-                <span class="hide-menu">Emailet e Pranuara</span>
+                <span class="hide-menu">Mesazhet e Pranuara</span>
               </a>
             </li>   
             <li class="sidebar-item">
@@ -180,12 +180,14 @@
     const subjectIcon = document.getElementById('Icon').files[0];
     const subjectCycle = document.getElementById('Cycle').value;
     const subjectClass = document.getElementById('Class').value;  
+
     formData.append('subjectName',subjectName)
     formData.append('subjectCycle',subjectCycle)
     formData.append('subjectClass',subjectClass)
       if(subjectIcon){
         formData.append('iconImage',subjectIcon)
       }
+      
     const res = await fetch('/subjects/register-subjects', {
       method: 'POST', 
       body: formData

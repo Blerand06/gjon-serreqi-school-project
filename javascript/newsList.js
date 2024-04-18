@@ -12,7 +12,7 @@ const getNews = async () => {
         <td>${News[i].newsTitle}</td>
         <td><img src="/uploads/${
           News[i].newsPhoto
-        }"style="width: 30px; height: 30px; object-fit: cover;"></img></td>
+        }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>
         <td>${News[i].newsDescription}</td>
         <td>${News[i].newsTag}</td>
         <td>${News[i].newsMetaTitle}</td>
@@ -23,6 +23,7 @@ const getNews = async () => {
                                   News[i]._id
                                 }"><span style= "color: orange;">Ndrysho</span></a>
                                 <span style="margin: 0px 5px;">/</span>  
+                                
                                 <a style="cursor: pointer;"><span id="${
                                   News[i]._id
                                 }" delete="true" style="color: red;">Fshi</span></a>

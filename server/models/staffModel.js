@@ -21,6 +21,7 @@ const staffSchema = mongoose.Schema(
         'Mësues/e',
         'Sekretar/eshë',
         'Zëvendësdrejtor/e',
+        'Punëtor Teknik',
       ],
     },
     staffSubject: {

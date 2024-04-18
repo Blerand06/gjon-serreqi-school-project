@@ -39,7 +39,7 @@
               <img
                 src="/css/admin-img/logos/logo-skolla.png"
                 height="190px"
-                width="100%"
+                width="190px"
                 alt=""
               />
             </a>
@@ -162,7 +162,7 @@
             Titullin, Foton, Përshkrimin, Tagjet, Titullin Meta dhe Përshkrimin
             Meta, apo vetëm njëren prej tyre nëse dëshironi.
           </h3>
-          <form id="newsForm">
+          <form id="newsForm" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Titulli</label>
               <input
@@ -175,7 +175,12 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Foto</label>
-              <input type="file" class="form-control" id="newsPhoto" />
+              <input
+                type="file"
+                class="form-control"
+                id="newsPhoto"
+                name="newsPhotoFile"
+              />
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
@@ -230,7 +235,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/newsList.js"></script>
     <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
     <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/css/admin-js/sidebarmenu.js"></script>
@@ -242,8 +246,11 @@
 
       newsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        const formData = new FormData();
+
         const newsTitle = document.getElementById('newsTitle').value;
-        const newsPhoto = document.getElementById('newsPhoto').value;
+        const newsPhoto = document.getElementById('newsPhoto').files[0];
         const newsDescription =
           document.getElementById('newsDescription').value;
         const newsTag = document.getElementById('newsTag').value;
@@ -252,20 +259,17 @@
           'newsMetaDescription'
         ).value;
 
+        formData.append('id', location.pathname.split('/')[2]);
+        formData.append('newsTitle', newsTitle);
+        formData.append('newsPhotoFile', newsPhoto);
+        formData.append('newsDescription', newsDescription);
+        formData.append('newsTag', newsTag);
+        formData.append('newsMetaTitle', newsMetaTitle);
+        formData.append('newsMetaDescription', newsMetaDescription);
+
         const res = await fetch('/news/update-news', {
           method: 'PUT',
-          body: JSON.stringify({
-            id: location.pathname.split('/')[2],
-            newsTitle,
-            newsTitle,
-            newsDescription,
-            newsTag,
-            newsMetaTitle,
-            newsMetaDescription,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          body: formData,
         });
         const data = await res.json();
 

@@ -3,6 +3,7 @@ const Subject = require('../models/subjectsModel');
 const Staff = require('../models/staffModel');
 const Plan = require('../models/planModel');
 const User = require('../models/authModel');
+const Contact = require('../models/contactModel');
 const moment = require('moment');
 
 // Rendering Pages (PUBLIC)
@@ -15,8 +16,27 @@ const mainPage = async (req, res) => {
     res.redirect('back');
   }
 };
-const staffPage = (req, res) => {
-  res.render('staff');
+const staffPage = async (req, res) => {
+  const staff = await Staff.find();
+  const staffBoard = await Staff.find({
+    staffRole: { $in: ['Drejtor/eshë', 'Sekretar/eshë', 'Zëvendësdrejtor/e'] },
+  });
+  const staffTeacher = await Staff.find({
+    staffRole: 'Arsimtar/e',
+  });
+  const staffElemtaryTeacher = await Staff.find({
+    staffRole: 'Mësues/e',
+  });
+  const staffTechnicalWorker = await Staff.find({
+    staffRole: 'Punëtor Teknik',
+  });
+  res.render('staff', {
+    staff,
+    staffBoard,
+    staffElemtaryTeacher,
+    staffTeacher,
+    staffTechnicalWorker,
+  });
 };
 const aboutPage = async (req, res) => {
   const about = await Plan.find();
@@ -55,6 +75,9 @@ const adminSubjectsPage = async (req, res) => {
 };
 const adminContactPage = async (req, res) => {
   res.render('admin/admin-contact');
+};
+const addroles = async (req, res) => {
+  res.render('admin/addroles');
 };
 
 // Rendering Pages (PRIVATE/ADMIN - EDITS)
@@ -103,6 +126,11 @@ const adminSubjectsPageEdit = async (req, res) => {
   }
 };
 
+const expandedAdminContactPage = async (req, res) => {
+  const contact = await Contact.findById(req.params.id);
+  res.render('admin/admin-moreContact', { contact });
+};
+
 module.exports = {
   // PUBLIC exporting
   mainPage,
@@ -118,6 +146,8 @@ module.exports = {
   adminStaffPage,
   adminSubjectsPage,
   adminContactPage,
+  expandedAdminContactPage,
+  addroles,
 
   // PRIVATE/ADMIN - EDITS exporting
   adminAuthPageEdit,

@@ -1,4 +1,6 @@
 const Subject = require('../models/subjectsModel');
+const fs = require('fs');
+const path = require('path');
 
 const registerSubject = async (req, res) => {
   const { subjectName, subjectCycle, subjectClass, subjectIcon } = req.body;
@@ -49,17 +51,24 @@ const updateSubject = async (req, res) => {
 
   const id = req.body.id;
   Subject.findByIdAndUpdate(id, req.body, { new: true })
-    .then((data) => {
+    .then(async (data) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot update subject with the id of ${id}. Maybe order not found.`,
           status: 'fail',
         });
       } else {
+        if (req.file) {
+          const filePath = path.join(__dirname, '../uploads', data.subjectIcon);
+          fs.unlinkSync(filePath);
+          data.subjectIcon = req.file.filename;
+          await data.save();
+        }
         res.send({ data, status: 'success' });
       }
     })
     .catch((error) => {
+      console.log(error);
       res.status(500).send({
         message: 'Error updating subject information',
         status: 'fail',

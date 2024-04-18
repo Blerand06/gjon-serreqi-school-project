@@ -3,7 +3,6 @@ const dotenv = require('dotenv');
 const path = require('path');
 const bodyparser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const multer = require('multer');
 const app = express();
 
 dotenv.config({ path: '.env' });
@@ -38,4 +37,4 @@ app.listen(PORT, () => {
   console.log(`You've been connected to PORT: ${PORT}!`);
 });
 
-// https://notepad.pw/mesazhet-shkolla / https://termini.beauty/
+// https://termini.beauty/

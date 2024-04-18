@@ -4,12 +4,15 @@ const contactSchema = mongoose.Schema(
   {
     contactEmail: {
       type: String,
+      required: true,
     },
     contactTitle: {
       type: String,
+      required: true,
     },
     contactMessage: {
       type: String,
+      required: true,
     },
   },
   { timestamps: true }

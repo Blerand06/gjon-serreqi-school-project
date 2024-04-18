@@ -7,9 +7,9 @@
     <link
       rel="shortcut icon"
       type="image/png"
-      href="assets/images/logos/logo-skolla.png"
+      href="/css/admin-img/logos/logo-skolla.png"
     />
-    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="/css/admin-css/styles.min.css" />
 
     <link
       rel="stylesheet"
@@ -35,11 +35,11 @@
           <div
             class="brand-logo d-flex align-items-center justify-content-between"
           >
-            <a href="./index.html" class="text-nowrap logo-img">
+            <a href="" class="text-nowrap logo-img">
               <img
-                src="assets/images/logos/logo-skolla.png"
+                src="/css/admin-img/logos/logo-skolla.png"
                 height="190px"
-                width="100%"
+                width="190px"
                 alt=""
               />
             </a>
@@ -57,17 +57,9 @@
                 <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="index.html" aria-expanded="false">
-                  <span>
-                    <i class="fa-solid fa-bars"></i>
-                  </span>
-                  <span class="hide-menu">Kategoritë</span>
-                </a>
-              </li>
-              <li class="sidebar-item">
                 <a
                   class="sidebar-link"
-                  href="subjects.html"
+                  href="/admin-subjects"
                   aria-expanded="false"
                 >
                   <span>
@@ -77,7 +69,11 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="staff.html" aria-expanded="false">
+                <a
+                  class="sidebar-link"
+                  href="/admin-staff"
+                  aria-expanded="false"
+                >
                   <span>
                     <i class="fa-solid fa-user"></i>
                   </span>
@@ -85,7 +81,11 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="plan.html" aria-expanded="false">
+                <a
+                  class="sidebar-link"
+                  href="/admin-plan"
+                  aria-expanded="false"
+                >
                   <span>
                     <i class="fa-solid fa-file"></i>
                   </span>
@@ -93,7 +93,11 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="news.html" aria-expanded="false">
+                <a
+                  class="sidebar-link"
+                  href="/admin-news"
+                  aria-expanded="false"
+                >
                   <span>
                     <i class="fa-solid fa-envelope"></i>
                   </span>
@@ -102,14 +106,42 @@
               </li>
               <li class="sidebar-item">
                 <a
-                  class="sidebar-link"
-                  href="assets.html"
+                  class="sidebar-link active"
+                  href="/admin-contact"
                   aria-expanded="false"
                 >
                   <span>
-                    <i class="fa-solid fa-gear"></i>
+                    <i class="fa-solid fa-message"></i>
                   </span>
-                  <span class="hide-menu">Asetet</span>
+                  <span class="hide-menu">Mesazhet e Pranuara</span>
+                </a>
+              </li>
+
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-auth-edit/<%= user._id %>"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-user-pen"></i>
+                  </span>
+                  <span class="hide-menu">Përditëso Llogarinë</span>
+                </a>
+              </li>
+              <li class="sidebar-item mt-5">
+                <a
+                  class="sidebar-link"
+                  href="/auth/logout"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i
+                      class="fa-solid fa-arrow-right-from-bracket"
+                      style="color: #e72d18"
+                    ></i>
+                  </span>
+                  <span class="hide-menu" style="color: #e72d18">Shkyçuni</span>
                 </a>
               </li>
             </ul>
@@ -122,61 +154,39 @@
       <!--  Main wrapper -->
       <div class="body-wrapper">
         <div class="container-fluid">
+          <h2 style="font-size: 36px; margin-bottom: 50px">
+            Mesazhet e <span style="color: rgb(2, 176, 2)">dërguara</span> nga
+            vizituesit e webfaqës!
+          </h2>
+          <h3 style="font-size: 20px; margin-bottom: 35px">
+            <b>Informatë</b>: Ju mund të klikoni linkun "<span
+              style="color: #539bff"
+              >Shiko të gjithën</span
+            >" per më shumë informata apo edhe ti
+            <span style="color: #e72d18">fshini</span> ato.
+          </h3>
           <table class="table">
             <thead>
               <tr>
                 <th>E-maili</th>
-                <th>Data</th>
-                <th>Tema</th>
+                <th>Titulli</th>
                 <th>Mesazhi</th>
+                <th>Data</th>
+                <th>Opsionet</th>
                 <th></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>adhurim@email.com</td>
-                <td>04/12/2024</td>
-                <td>Lista për përmirësime</td>
-                <td>Kam një listë që...</td>
-                <td><button class="btn btn-primary">Shiko më shumë</button></td>
-              </tr>
-              <tr>
-                <td>arber@email.com</td>
-                <td>04/12/2024</td>
-                <td>Lista për përmirësime</td>
-                <td>Kam një listë që...</td>
-                <td><button class="btn btn-primary">Shiko më shumë</button></td>
-              </tr>
-              <tr>
-                <td>blerand@email.com</td>
-                <td>04/12/2024</td>
-                <td>Lista për përmirësime</td>
-                <td>Kam një listë që...</td>
-                <td><button class="btn btn-primary">Shiko më shumë</button></td>
-              </tr>
-              <tr>
-                <td>albion@email.com</td>
-                <td>04/12/2024</td>
-                <td>Lista për përmirësime</td>
-                <td>Kam një listë që...</td>
-                <td><button class="btn btn-primary">Shiko më shumë</button></td>
-              </tr>
-              <tr>
-                <td>akili@email.com</td>
-                <td>04/12/2024</td>
-                <td>Lista për përmirësime</td>
-                <td>Kam një listë që...</td>
-                <td><button class="btn btn-primary">Shiko më shumë</button></td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
     </div>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/sidebarmenu.js"></script>
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="/js/contactList.js"></script>
+    <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
+    <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/admin-js/sidebarmenu.js"></script>
+    <script src="/css/admin-js/app.min.js"></script>
+    <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
   </body>
 </html>

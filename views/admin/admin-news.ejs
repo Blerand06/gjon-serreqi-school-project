@@ -39,7 +39,7 @@
               <img
                 src="/css/admin-img/logos/logo-skolla.png"
                 height="190px"
-                width="100%"
+                width="190px"
                 alt=""
               />
             </a>
@@ -113,7 +113,7 @@
                   <span>
                     <i class="fa-solid fa-message"></i>
                   </span>
-                  <span class="hide-menu">Emailet e Pranuara</span>
+                  <span class="hide-menu">Mesazhet e Pranuara</span>
                 </a>
               </li>
               <li class="sidebar-item">
@@ -258,7 +258,9 @@
 
       newsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
         const formData = new FormData();
+
         const newsTitle = document.getElementById('newsTitle').value;
         const newsPhoto = document.getElementById('newsPhoto').files[0];
         const newsDescription =
@@ -268,15 +270,13 @@
         const newsMetaDescription = document.getElementById(
           'newsMetaDescription'
         ).value;
+
         formData.append('newsTitle', newsTitle);
         formData.append('newsDescription', newsDescription);
         formData.append('newsTag', newsTag);
         formData.append('newsMetaTitle', newsMetaTitle);
         formData.append('newsMetaDescription', newsMetaDescription);
-
-        if (newsPhoto) {
-          formData.append('newsPhotoFile', newsPhoto);
-        }
+        formData.append('newsPhotoFile', newsPhoto);
 
         const res = await fetch('/news/register-news', {
           method: 'POST',

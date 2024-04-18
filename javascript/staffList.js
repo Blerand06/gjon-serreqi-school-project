@@ -12,7 +12,7 @@ const getStaff = async () => {
         <td>${Staff[i].staffName}</td>
         <td><img src="/uploads/${
           Staff[i].staffPhoto
-        }"style="width: 30px; height: 30px; object-fit: cover;"></img></td>
+        }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>
         <td>-</td>
         <td>${Staff[i].staffRole}</td>
         <td>${Staff[i].staffSubject}</td>

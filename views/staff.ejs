@@ -83,12 +83,13 @@
         </div>
 
         <div class="row g-4">
+          <% for (let i = 0; i < staffBoard.length; i++) { %>
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
             <div class="team-item bg-light">
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="/css/public-img/team-1.jpg"
+                  src="/uploads/<%= staffBoard[i].staffPhoto %>"
                   alt=""
                 />
               </div>
@@ -97,17 +98,21 @@
                 style="margin-top: -23px"
               >
                 <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                  <a
+                    class="btn btn-sm-square btn-primary mx-1"
+                    href="/uploads/<%= staffBoard[i].staffCV %>"
+                    download="<%= staffBoard[i].staffCV %>"
                     ><i class="fa-solid fa-download"></i
                   ></a>
                 </div>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Profesioni</small>
+                <h5 class="mb-0"><%= staffBoard[i].staffName %></h5>
+                <small><%= staffBoard[i].staffRole %></small>
               </div>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
@@ -118,12 +123,13 @@
           <h1 class="mb-5">Arsimtarët</h1>
         </div>
         <div class="row g-4">
+          <% for (let i = 0; i < staffTeacher.length; i++ ) { %>
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
             <div class="team-item bg-light">
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="/css/public-img/team-1.jpg"
+                  src="/uploads/<%= staffTeacher[i].staffPhoto %>"
                   alt=""
                 />
               </div>
@@ -132,17 +138,21 @@
                 style="margin-top: -23px"
               >
                 <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                  <a
+                    class="btn btn-sm-square btn-primary mx-1"
+                    href="/uploads/<%= staffTeacher[i].staffCV %>"
+                    download="<%= staffTeacher[i].staffCV %>"
                     ><i class="fa-solid fa-download"></i
                   ></a>
                 </div>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Profesioni</small>
+                <h5 class="mb-0"><%= staffTeacher[i].staffName %></h5>
+                <small><%= staffTeacher[i].staffRole %></small>
               </div>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
@@ -153,12 +163,13 @@
           <h1 class="mb-5">Mësuesit</h1>
         </div>
         <div class="row g-4">
+          <% for (let i = 0; i < staffElemtaryTeacher.length; i++) { %>
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
             <div class="team-item bg-light">
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="/css/public-img/team-1.jpg"
+                  src="/uploads/<%= staffElemtaryTeacher[i].staffPhoto %>"
                   alt=""
                 />
               </div>
@@ -167,17 +178,21 @@
                 style="margin-top: -23px"
               >
                 <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                  <a
+                    class="btn btn-sm-square btn-primary mx-1"
+                    href="/uploads/<%= staffElemtaryTeacher[i].staffCV %>"
+                    download="<%= staffElemtaryTeacher[i].staffCV %>"
                     ><i class="fa-solid fa-download"></i
                   ></a>
                 </div>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Profesioni</small>
+                <h5 class="mb-0"><%= staffElemtaryTeacher[i].staffName %></h5>
+                <small><%= staffElemtaryTeacher[i].staffRole %></small>
               </div>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
@@ -188,12 +203,13 @@
           <h1 class="mb-5">Punëtorët teknik</h1>
         </div>
         <div class="row g-4">
+          <% for (let i = 0; i < staffTechnicalWorker.length; i++) { %>
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
             <div class="team-item bg-light">
               <div class="overflow-hidden">
                 <img
                   class="img-fluid"
-                  src="/css/public-img/team-1.jpg"
+                  src="/uploads/<%= staffTechnicalWorker[i].staffPhoto %>"
                   alt=""
                 />
               </div>
@@ -202,17 +218,21 @@
                 style="margin-top: -23px"
               >
                 <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                  <a class="btn btn-sm-square btn-primary mx-1" href=""
+                  <a
+                    class="btn btn-sm-square btn-primary mx-1"
+                    href="/uploads/<%= staffTechnicalWorker[i].staffCV %>"
+                    download="staffTechnicalWorker[i].staffCV"
                     ><i class="fa-solid fa-download"></i
                   ></a>
                 </div>
               </div>
               <div class="text-center p-4">
-                <h5 class="mb-0">Filan Fisteku</h5>
-                <small>Profesioni</small>
+                <h5 class="mb-0"><%= staffTechnicalWorker[i].staffName %></h5>
+                <small><%= staffTechnicalWorker[i].staffRole %></small>
               </div>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>

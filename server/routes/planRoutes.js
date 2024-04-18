@@ -26,7 +26,11 @@ router.post(
   controller.registerPlan
 );
 router.get('/get-plan', controller.getPlan);
-router.put('/update-plan', controller.updatePlan);
+router.put(
+  '/update-plan',
+  upload.single('planDocumentFile'),
+  controller.updatePlan
+);
 router.delete('/delete-plan', controller.deletePlan);
 
 module.exports = router;

@@ -26,7 +26,11 @@ router.post(
   controller.registerNews
 );
 router.get('/get-news', controller.getNews);
-router.put('/update-news', controller.updateNews);
+router.put(
+  '/update-news',
+  upload.single('newsPhotoFile'),
+  controller.updateNews
+);
 router.delete('/delete-news', controller.deleteNews);
 
 module.exports = router;

@@ -19,7 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="100%" alt=""/>
+          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
         </a>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -73,7 +73,7 @@
                 <span>
                   <i class="fa-solid fa-message"></i>
                 </span>
-                <span class="hide-menu">Emailet e Pranuara</span>
+                <span class="hide-menu">Mesazhet e Pranuara</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -134,7 +134,7 @@
             <tr>
               <th>Nr.</th>
               <th>Viti</th>
-              <th>Dokumenti</th>
+              <th>Foto</th>
               <th>Opsione</th>
             </tr>
           </thead>
@@ -164,12 +164,8 @@
     const planYear = document.getElementById('planYear').value;
     const planDocument = document.getElementById('planDocument').files[0];
     formData.append('planYear', planYear)
+    formData.append('planDocumentFile', planDocument)
     
-    if (planDocument) {
-      formData.append('planDocumentFile', planDocument)
-    }
-
-
     const res = await fetch('/plan/register-plan', {
       method: 'POST', 
       body: formData

@@ -7,9 +7,9 @@
     <link
       rel="shortcut icon"
       type="image/png"
-      href="assets/images/logos/logo-skolla.png"
+      href="/css/admin-img/logos/logo-skolla.png"
     />
-    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="/css/admin-css/styles.min.css" />
 
     <link
       rel="stylesheet"
@@ -35,11 +35,11 @@
           <div
             class="brand-logo d-flex align-items-center justify-content-between"
           >
-            <a href="./index.html" class="text-nowrap logo-img">
+            <a href="" class="text-nowrap logo-img">
               <img
-                src="assets/images/logos/logo-skolla.png"
+                src="/css/admin-img/logos/logo-skolla.png"
                 height="190px"
-                width="100%"
+                width="190px"
                 alt=""
               />
             </a>
@@ -57,17 +57,9 @@
                 <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="index.html" aria-expanded="false">
-                  <span>
-                    <i class="fa-solid fa-bars"></i>
-                  </span>
-                  <span class="hide-menu">Kategoritë</span>
-                </a>
-              </li>
-              <li class="sidebar-item">
                 <a
                   class="sidebar-link"
-                  href="subjects.html"
+                  href="/admin-subjects"
                   aria-expanded="false"
                 >
                   <span>
@@ -77,7 +69,11 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="staff.html" aria-expanded="false">
+                <a
+                  class="sidebar-link"
+                  href="/admin-staff"
+                  aria-expanded="false"
+                >
                   <span>
                     <i class="fa-solid fa-user"></i>
                   </span>
@@ -85,7 +81,11 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="plan.html" aria-expanded="false">
+                <a
+                  class="sidebar-link"
+                  href="/admin-plan"
+                  aria-expanded="false"
+                >
                   <span>
                     <i class="fa-solid fa-file"></i>
                   </span>
@@ -93,7 +93,11 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="news.html" aria-expanded="false">
+                <a
+                  class="sidebar-link"
+                  href="/admin-news"
+                  aria-expanded="false"
+                >
                   <span>
                     <i class="fa-solid fa-envelope"></i>
                   </span>
@@ -103,13 +107,28 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link"
-                  href="assets.html"
+                  href="/admin-auth-edit/<%= user._id %>"
                   aria-expanded="false"
                 >
                   <span>
-                    <i class="fa-solid fa-gear"></i>
+                    <i class="fa-solid fa-user-pen"></i>
                   </span>
-                  <span class="hide-menu">Asetet</span>
+                  <span class="hide-menu">Përditëso Llogarinë</span>
+                </a>
+              </li>
+              <li class="sidebar-item mt-5">
+                <a
+                  class="sidebar-link"
+                  href="/auth/logout"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i
+                      class="fa-solid fa-arrow-right-from-bracket"
+                      style="color: #e72d18"
+                    ></i>
+                  </span>
+                  <span class="hide-menu" style="color: #e72d18">Shkyçuni</span>
                 </a>
               </li>
             </ul>
@@ -122,29 +141,35 @@
       <!--  Main wrapper -->
       <div class="body-wrapper">
         <div class="container-fluid">
-          <h1 class="text-center mb-2">Lorem, ipsum.</h1>
-          <div class="card w-100">
+          <h2 style="font-size: 36px; margin-bottom: 50px">
+            Faqja për shikimin e plotë të
+            <b><u style="color: rgb(2, 176, 2)">mesazheve</u></b> të dërguara
+            nga vrojtuesit e webfaqes!
+          </h2>
+          <div class="card w-10 mt-5">
             <div class="card-body">
-              <p class="card-text"><b>E-maili: </b>akil@email.com</p>
-              <p class="card-text"><b>Tema: </b>Lista përmirësimesh</p>
               <p class="card-text">
-                <b>Mesazhi: </b>Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quibusdam a eius provident sit atque
-                cupiditate mollitia, ducimus nostrum animi possimus culpa amet
-                magni, quia quas sunt labore nisi repudiandae voluptatibus
-                accusamus sequi! Sed doloremque aliquid, eligendi quasi ipsum
-                dolor qui rem, molestias repellat voluptatibus possimus earum
-                architecto incidunt laborum blanditiis.
+                <b style="color: #5d87ff">E-maili: </b><%= contact.contactEmail
+                %>
+              </p>
+              <p class="card-text">
+                <b style="color: #5d87ff">Tema: </b><%= contact.contactTitle %>
+              </p>
+              <p class="card-text">
+                <b style="color: #5d87ff">Mesazhi: </b><%=
+                contact.contactMessage %>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/sidebarmenu.js"></script>
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="/js/contactList.js"></script>
+    <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
+    <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/admin-js/sidebarmenu.js"></script>
+    <script src="/css/admin-js/app.min.js"></script>
+    <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
   </body>
 </html>

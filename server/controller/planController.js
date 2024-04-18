@@ -1,4 +1,6 @@
 const Plan = require('../models/planModel');
+const fs = require('fs');
+const path = require('path');
 
 const registerPlan = async (req, res) => {
   const { planYear, planDocument } = req.body;
@@ -47,17 +49,28 @@ const updatePlan = async (req, res) => {
 
   const id = req.body.id;
   Plan.findByIdAndUpdate(id, req.body, { new: true })
-    .then((data) => {
+    .then(async (data) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot update subject with the id of ${id}. Maybe order not found.`,
           status: 'fail',
         });
       } else {
+        if (req.file) {
+          const filePath = path.join(
+            __dirname,
+            '../uploads',
+            data.planDocument
+          );
+          fs.unlinkSync(filePath);
+          data.planDocument = req.file.filename;
+          await data.save();
+        }
         res.send({ data, status: 'success' });
       }
     })
     .catch((error) => {
+      console.log(error);
       res.status(500).send({
         message: 'Error updating subject information',
         status: 'fail',
@@ -69,7 +82,7 @@ const deletePlan = async (req, res) => {
   const id = req.body.id;
 
   Plan.findByIdAndDelete(id)
-    .then((data) => {
+    .then(async (data) => {
       if (!data) {
         res.status(404).send({
           message: `Cannot Delete with id: ${id}. Maybe the ID is wrong`,

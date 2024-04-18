@@ -2,8 +2,8 @@ const Contact = require('../models/contactModel');
 
 const getContact = async (req, res) => {
   try {
-    const contact = Contact.find({});
-    res.send({ data: contact, status: 'success' });
+    const contacts = await Contact.find({});
+    res.send({ data: contacts, status: 'success' });
   } catch (error) {
     console.log(error);
     res.send({ data: [], status: 'fail' });
@@ -41,6 +41,29 @@ const registerContact = async (req, res) => {
   }
 };
 
-const deleteContact = async (req, res) => {};
+const deleteContact = async (req, res) => {
+  const id = req.body.id;
+
+  Contact.findByIdAndDelete(id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot Delete with id: ${id}. Maybe the ID is wrong`,
+          status: 'fail',
+        });
+      } else {
+        res.status(200).send({
+          message: 'Contact was deleted successfully!',
+          status: 'success',
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        message: `Could not delete contact with id: ${id}`,
+        status: 'fail',
+      });
+    });
+};
 
 module.exports = { getContact, registerContact, deleteContact };

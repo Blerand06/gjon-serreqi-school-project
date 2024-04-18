@@ -1,4 +1,6 @@
 const Staff = require('../models/staffModel');
+const fs = require('fs');
+const path = require('path');
 
 const registerStaff = async (req, res) => {
   const { staffName, staffPhoto, staffCV, staffRole } = req.body;
@@ -54,20 +56,36 @@ const updateStaff = async (req, res) => {
   }
 
   const id = req.body.id;
+
   Staff.findByIdAndUpdate(id, req.body, { new: true })
-    .then((data) => {
+    .then(async (data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update subject with the id of ${id}. Maybe order not found.`,
+          message: `Cannot update staff with the id of ${id}. Maybe staff not found.`,
           status: 'fail',
         });
       } else {
+        if (req.file) {
+          const filePathPhoto = path.join(
+            __dirname,
+            '../uploads',
+            data.staffPhoto
+          );
+          const filePathCV = path.join(__dirname, '../uploads', data.staffCV);
+
+          fs.unlinkSync(filePathPhoto);
+          fs.unlinkSync(filePathCV);
+
+          data.staffPhoto = req.files['photoFile'][0].filename;
+          data.staffCV = req.files['cvFile'][0].filename;
+          await data.save();
+        }
         res.send({ data, status: 'success' });
       }
     })
     .catch((error) => {
       res.status(500).send({
-        message: 'Error updating subject information',
+        message: 'Error updating staff information',
         status: 'fail',
       });
     });

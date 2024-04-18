@@ -29,7 +29,14 @@ router.post(
   controller.registerStaff
 );
 router.get('/get-staff', controller.getStaff);
-router.put('/update-staff', controller.updateStaff);
+router.put(
+  '/update-staff',
+  upload.fields([
+    { name: 'photoFile', maxCount: 1 },
+    { name: 'cvFile', maxCount: 1 },
+  ]),
+  controller.updateStaff
+);
 router.delete('/delete-staff', controller.deleteStaff);
 
 module.exports = router;

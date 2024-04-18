@@ -1,4 +1,6 @@
 const News = require('../models/newsModel');
+const fs = require('fs');
+const path = require('path');
 
 const registerNews = async (req, res) => {
   const {
@@ -59,19 +61,25 @@ const updateNews = async (req, res) => {
 
   const id = req.body.id;
   News.findByIdAndUpdate(id, req.body, { new: true })
-    .then((data) => {
+    .then(async (data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update subject with the id of ${id}. Maybe order not found.`,
+          message: `Cannot update news with the id of ${id}. Maybe order not found.`,
           status: 'fail',
         });
       } else {
+        if (req.file) {
+          const pathFile = path.join(__dirname, '../uploads', data.newsPhoto);
+          fs.unlinkSync(pathFile);
+          data.newsPhoto = req.file.filename;
+          await data.save();
+        }
         res.send({ data, status: 'success' });
       }
     })
     .catch((error) => {
       res.status(500).send({
-        message: 'Error updating subject information',
+        message: 'Error updating news information',
         status: 'fail',
       });
     });

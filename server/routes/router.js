@@ -25,6 +25,13 @@ router.get('/admin-subjects', requireAuth, services.adminSubjectsPage);
 router.get('/admin-subjects/:id', requireAuth, services.adminSubjectsPageEdit);
 
 router.get('/admin-contact', requireAuth, services.adminContactPage);
+router.get(
+  '/admin-more-contact/:id',
+  requireAuth,
+  services.expandedAdminContactPage
+);
+
+router.get('/add-roles', requireAuth, services.addroles);
 
 // Routing Pages (PRIVATE/ADMIN - EDITS)
 router.get('/admin-auth-edit/:id', requireAuth, services.adminAuthPageEdit);

@@ -36,7 +36,7 @@
             <img
               src="/css/admin-img/logos/logo-skolla.png"
               height="190px"
-              width="100%"
+              width="190px"
               alt=""
             />
             <div
@@ -159,11 +159,11 @@
             </div>
             <div class="mb-3">
               <label for="staff-photo" class="form-label">Foto</label>
-              <input type="file" class="form-control" id="staff-photo" />
+              <input type="file" class="form-control" id="staff-photo" name="photoFile" />
             </div>
             <div class="mb-3">
               <label for="staff-cv" class="form-label">CV-ja</label>
-              <input type="file" class="form-control" id="staff-cv" />
+              <input type="file" class="form-control" id="staff-cv" name="cvFile" />
             </div>
             <div class="d-flex">
               <label class="me-1 mt-1" for="staff-role">Roli:</label>
@@ -196,25 +196,24 @@
 
       staffForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const formData = new FormData()
+
         const staffName = document.getElementById('staff-name').value;
-        const staffPhoto = document.getElementById('staff-photo').value;
-        const staffCV = document.getElementById('staff-cv').value;
+        const staffPhoto = document.getElementById('staff-photo').files[0];
+        const staffCV = document.getElementById('staff-cv').files[0];
         const staffRole = document.getElementById('staff-role').value;
         const staffSubject = document.getElementById('staff-subject').value;
 
+        formData.append('id',location.pathname.split('/')[2])
+        formData.append('staffName',staffName)
+        formData.append('photoFile',staffPhoto)
+        formData.append('cvFile', staffCV) 
+        formData.append('staffRole',staffRole)
+        formData.append('staffSubject',staffSubject)
+
         const res = await fetch('/staff/update-staff', {
           method: 'PUT',
-          body: JSON.stringify({
-            id: location.pathname.split('/')[2],
-            staffName,
-            staffPhoto,
-            staffCV,
-            staffRole,
-            staffSubject,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          body: formData
         });
         const data = await res.json();
 

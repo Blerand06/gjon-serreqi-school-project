@@ -12,7 +12,7 @@ const getSubjects = async () => {
                                 <td>${Subjects[i].subjectName}</td>
                                 <td><img src="/uploads/${
                                   Subjects[i].subjectIcon
-                                }"style="width: 30px; height: 30px; object-fit: cover;"></img></td>
+                                }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>
                                 <td>${Subjects[i].subjectCycle}</td>
                                 <td>${Subjects[i].subjectClass}</td>
 

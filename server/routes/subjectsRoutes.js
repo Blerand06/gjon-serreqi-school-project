@@ -26,7 +26,11 @@ router.post(
   controller.registerSubject
 );
 router.get('/get-subjects', controller.getSubject);
-router.put('/update-subjects', controller.updateSubject);
+router.put(
+  '/update-subjects',
+  upload.single('iconImage'),
+  controller.updateSubject
+);
 router.delete('/delete-subjects', controller.deleteSubject);
 
 module.exports = router;

@@ -10,7 +10,9 @@ const getPlan = async () => {
         const trContent = `
                                 <td>${i + 1}</td>
                                 <td>${Plan[i].planYear}</td>
-                                <td>-</td>
+                                <td><img src="/uploads/${
+                                  Plan[i].planDocument
+                                }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>
 
                                 <td class="primary d-flex">
                                 <a href="/admin-plan/${

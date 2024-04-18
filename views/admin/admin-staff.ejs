@@ -19,7 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="100%" alt=""/>
+          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
         </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -72,7 +72,7 @@
                 <span>
                   <i class="fa-solid fa-message"></i>
                 </span>
-                <span class="hide-menu">Emailet e Pranuara</span>
+                <span class="hide-menu">Mesazhet e Pranuara</span>
               </a>
             </li>   
             <li class="sidebar-item">
@@ -107,6 +107,7 @@
       <!-- End Sidebar scroll-->
     </aside>
     <!--  Sidebar End -->
+    
     <!--  Main wrapper -->
     <div class="body-wrapper">
 
@@ -137,11 +138,12 @@
               <option value="Mësues/e">Mësues/e</option>
               <option value="Sekretar/eshë">Sekretar/eshë</option>
               <option value="Zëvendësdrejtor/e">Zëvendësdrejtor/e</option>
+              <option value="Punëtor Teknik">Punëtor Teknik</option>
             </select>
 
             <label id="subject-placeholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
             <select id="staff-subject"  style="border: none; padding: 5px;">
-              <option value="Biologji" selected>Biologji</option>
+              <option value="Biologji">Biologji</option>
               <option value="Matematikë">Matematikë</option>
               <option value="Anglisht">Anglisht</option>
               <option value="Kimi">Kimi</option>
@@ -186,7 +188,8 @@
       if (selectedRole === 'Arsimtar/e') {
         staffSubjectSelect.style.display = 'block';
         subjectPlaceholder.style.display =  'block';
-      } else { 
+      }
+      else { 
         staffSubjectSelect.style.display = 'none';
         subjectPlaceholder.style.display =  'none';
       }
@@ -207,17 +210,17 @@
     const staffPhoto = document.getElementById('staff-photo').files[0];
     const staffCV = document.getElementById('staff-cv').files[0];
     const staffRole = document.getElementById('staff-role').value;
-    const staffSubject = document.getElementById('staff-subject').value;
+    let staffSubject = '';
+
+    if (staffRole === 'Arsimtar/e') {
+      staffSubject = document.getElementById('staff-subject').value;
+    }
+
     formData.append('staffName', staffName)
     formData.append('staffRole', staffRole)
     formData.append('staffSubject', staffSubject)
-    
-    if (staffPhoto) {
-      formData.append('photoFile', staffPhoto);
-    }
-    if (staffCV) {
-      formData.append('cvFile', staffCV);
-    }
+    formData.append('photoFile', staffPhoto);
+    formData.append('cvFile', staffCV);
 
     const res = await fetch('/staff/register-staff', {
       method: 'POST', 

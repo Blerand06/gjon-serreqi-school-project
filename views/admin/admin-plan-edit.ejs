@@ -19,7 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="100%" alt=""/>
+          <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
         </a>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -127,8 +127,8 @@
               <input value="<%= plan.planYear %>" type="text" class="form-control" id="planYear" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Dokumenti</label>
-              <input type="file" class="form-control" id="planDocument" aria-describedby="emailHelp">
+              <label for="exampleInputEmail1" class="form-label">Foto</label>
+              <input type="file" class="form-control" id="planDocumentFile" aria-describedby="emailHelp" name="planDocumentFile">
             </div>
             <button type="submit" class="btn btn-primary">Ndrysho</button>
           </form>
@@ -150,19 +150,18 @@
 
     planForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
+
+    const formData = new FormData()
     const planYear = document.getElementById('planYear').value;
-    const planDocument = document.getElementById('planDocument').value;
+    const planDocument = document.getElementById('planDocumentFile').files[0];
+
+    formData.append('id',location.pathname.split('/')[2])
+    formData.append('planYear', planYear)
+    formData.append('planDocumentFile', planDocument)
 
     const res = await fetch('/plan/update-plan', {
       method: 'PUT', 
-      body: JSON.stringify({
-        id: location.pathname.split('/')[2],
-        planYear,
-        planDocument
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      body: formData
     });
     const data = await res.json();
 
@@ -177,7 +176,8 @@
             location.assign('/admin-plan');
           });
         }
-  }); </script>
+  }); 
+  </script>
 </body>
 
 </html>
