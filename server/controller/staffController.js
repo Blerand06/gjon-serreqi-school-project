@@ -65,25 +65,22 @@ const updateStaff = async (req, res) => {
           status: 'fail',
         });
       } else {
-        if (req.file) {
-          const filePathPhoto = path.join(
-            __dirname,
-            '../uploads',
-            data.staffPhoto
-          );
-          const filePathCV = path.join(__dirname, '../uploads', data.staffCV);
-
-          fs.unlinkSync(filePathPhoto);
-          fs.unlinkSync(filePathCV);
-
-          data.staffPhoto = req.files['photoFile'][0].filename;
-          data.staffCV = req.files['cvFile'][0].filename;
-          await data.save();
+        if (req.files && req.files['photoFile']) {
+          const newPhotoFileName = req.files['photoFile'][0].filename;
+          data.staffPhoto = newPhotoFileName;
         }
+
+        if (req.files && req.files['cvFile']) {
+          const newCVFileName = req.files['cvFile'][0].filename;
+          data.staffCV = newCVFileName;
+        }
+
+        await data.save();
         res.send({ data, status: 'success' });
       }
     })
     .catch((error) => {
+      console.error('Error updating staff information:', error);
       res.status(500).send({
         message: 'Error updating staff information',
         status: 'fail',

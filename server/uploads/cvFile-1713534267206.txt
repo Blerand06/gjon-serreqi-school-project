@@ -1,0 +1,20 @@
+GABIME DHE PERMIRSIME:
+
+1. "/admin/news", media query duhet permiresimi rezolucioni
+
+2. Qka eshte qellimi i "Kategorite". Nuk shihet ne front.
+
+3. Rishikim tek rolet, plus rolet nuk mund te selektohen.
+
+4. Rregullimi i Edit-ev, asnje faqe nuk ka Edit page.
+
+5. "Edit" asseti nuk ka ka kuptim ne gjendjen qe eshte.
+
+6. Rregullime me h-ref ne front.
+
+7. Diarti nuk e kuptoj pse duhet FB edhe X tek punonjesit.
+
+8. Plani Zhvillimor Shkollor duhet foto ma t'vogla.
+
+9. Ku mundem me i lexu "Kontakt" mesazhat?
+

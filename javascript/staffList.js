@@ -7,13 +7,14 @@ const getStaff = async () => {
       let Staff = data.data;
       for (let i = 0; i < Staff.length; i++) {
         const tr = document.createElement('tr');
+        const staffCVCheck = Staff[i].staffCV ? Staff[i].staffCV : '';
         const trContent = `
         <td>${i + 1}</td>
         <td>${Staff[i].staffName}</td>
         <td><img src="/uploads/${
           Staff[i].staffPhoto
         }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>
-        <td>-</td>
+        <td>${staffCVCheck}</td>
         <td>${Staff[i].staffRole}</td>
         <td>${Staff[i].staffSubject}</td>
         <td class="primary d-flex">

@@ -206,10 +206,15 @@
 
         formData.append('id',location.pathname.split('/')[2])
         formData.append('staffName',staffName)
-        formData.append('photoFile',staffPhoto)
-        formData.append('cvFile', staffCV) 
         formData.append('staffRole',staffRole)
         formData.append('staffSubject',staffSubject)
+        
+        if(staffPhoto) {
+          formData.append('photoFile',staffPhoto)
+        }        
+        if (staffCV) {
+          formData.append('cvFile', staffCV) 
+        }
 
         const res = await fetch('/staff/update-staff', {
           method: 'PUT',
