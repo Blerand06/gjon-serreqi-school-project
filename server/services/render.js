@@ -62,8 +62,9 @@ const adminNewsPage = (req, res) => {
 const adminPlanPage = (req, res) => {
   res.render('admin/admin-plan');
 };
-const adminStaffPage = (req, res) => {
-  res.render('admin/admin-staff');
+const adminStaffPage = async (req, res) => {
+  const subject = await Subject.find();
+  res.render('admin/admin-staff', { subject });
 };
 const adminSubjectsPage = async (req, res) => {
   try {

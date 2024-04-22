@@ -113,7 +113,7 @@
     <!-- Carousel End -->
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div class="services">
       <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
           <h6 class="section-title bg-white text-center text-primary px-3">
@@ -127,22 +127,21 @@
           </h6>
         </div>
           <div class="row g-4">
-          <%for(let i =0;i<subject.length;i++){%>
+          <% for(let i = 0; i < subject.length ; i++){%>
             <% if (subject[i].subjectCycle === "Të gjithët") { %>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="service-item text-center pt-3">
-                <div class="p-4">
-                  <img src="/uploads/<%= subject[i].subjectIcon %>">
-                  <h5 class="mb-3">Lënda: <%=subject[i].subjectName%></h5>
-                  <p class="text-primary">Ciklet: <%=subject[i].subjectCycle%></p>
-                  <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
+              <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item text-center pt-3">
+                  <div class="p-4">
+                    <img class="mb-2" src="/uploads/<%= subject[i].subjectIcon %>" width="150px">
+                    <h5 class="mb-3">Lënda: <%= subject[i].subjectName %></h5>
+                    <p class="text-primary">Ciklet: <%= subject[i].subjectCycle %></p>
+                    <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
+                  </div>
                 </div>
               </div>
-            </div>
             <%}%>
             <%}%>
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-
           <h6
             class="section-title bg-white text-center text-primary mt-5 px-3 mb-4"
           >
@@ -152,10 +151,10 @@
         <div class="row g-4">
           <% for(let i = 0; i < subject.length; i++) { %>
             <% if (subject[i].subjectCycle === "I lartë") { %>
-              <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item text-center pt-3">
                   <div class="p-4">
-                    <img src="/uploads/<%= subject[i].subjectIcon %>">
+                    <img class="mb-2" src="/uploads/<%= subject[i].subjectIcon %>" width="150px">
                     <h5 class="mb-3">Lënda: <%= subject[i].subjectName %></h5>
                     <p class="text-primary">Ciklet: <%= subject[i].subjectCycle %></p>
                     <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
@@ -180,7 +179,7 @@
               <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item text-center pt-3">
                   <div class="p-4">
-                    <img src="/uploads/<%= subject[i].subjectIcon %>">
+                    <img class="mb-2" src="/uploads/<%= subject[i].subjectIcon %>" width="150px">
                     <h5 class="mb-3">Lënda: <%= subject[i].subjectName %></h5>
                     <p class="text-primary">Ciklet: <%= subject[i].subjectCycle %></p>
                     <p class="text-primary">Klasat: <%= subject[i].subjectClass %></p>
@@ -197,7 +196,7 @@
     <!-- Service End -->
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl mt-5">
       <div class="container">
         <div class="row g-5">
           <div
@@ -214,7 +213,7 @@
               />
             </div>
           </div>
-          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="col-lg-6 wow fadeInUp mt-5" data-wow-delay="0.3s">
             <h6 class="section-title bg-white text-start text-primary pe-3">
               Pse ne
             </h6>
@@ -273,7 +272,7 @@
    
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl wow fadeInUp" data-wow-delay="0.1s">
       <div class="container">
         <div class="text-center">
           <h6 class="section-title bg-white text-center text-primary px-3">
@@ -346,9 +345,10 @@
       </div>
     </div>
     <!-- Testimonial End -->
+    <!--Footer Start-->
 
     <%- include('includes/_footer') %>
-
+    <!--Footer End-->
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
       ><i class="bi bi-arrow-up"></i
