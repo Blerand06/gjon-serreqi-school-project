@@ -76,8 +76,8 @@ const adminSubjectsPage = async (req, res) => {
 const adminContactPage = async (req, res) => {
   res.render('admin/admin-contact');
 };
-const addroles = async (req, res) => {
-  res.render('admin/addroles');
+const adminAddRoleSubject = async (req, res) => {
+  res.render('admin/admin-add-role-subject');
 };
 
 // Rendering Pages (PRIVATE/ADMIN - EDITS)
@@ -147,7 +147,7 @@ module.exports = {
   adminSubjectsPage,
   adminContactPage,
   expandedAdminContactPage,
-  addroles,
+  adminAddRoleSubject,
 
   // PRIVATE/ADMIN - EDITS exporting
   adminAuthPageEdit,
