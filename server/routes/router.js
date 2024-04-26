@@ -31,11 +31,7 @@ router.get(
   services.expandedAdminContactPage
 );
 
-router.get(
-  '/admin-add-role-subject',
-  requireAuth,
-  services.adminAddRoleSubject
-);
+router.get('/admin-add-role', requireAuth, services.adminAddRole);
 
 // Routing Pages (PRIVATE/ADMIN - EDITS)
 router.get('/admin-auth-edit/:id', requireAuth, services.adminAuthPageEdit);

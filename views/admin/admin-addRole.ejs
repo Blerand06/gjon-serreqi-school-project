@@ -41,6 +41,18 @@
               </a>
             </li>
             <li class="sidebar-item">
+              <a
+                class="sidebar-link"
+                href="/admin-add-role"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa-solid fa-pencil"></i>
+                </span>
+                <span class="hide-menu">Profesionet</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
               <a class="sidebar-link" href="/admin-staff" aria-expanded="false">
                 <span>
                   <i class="fa-solid fa-user"></i>
@@ -107,29 +119,43 @@
       <!-- End Sidebar scroll-->
     </aside>
     <!--  Sidebar End -->
+
     <!--  Main wrapper -->
     <div class="body-wrapper">
 
       <div class="container-fluid">
         <h2 style="font-size: 36px; margin-bottom: 50px">
           Faqja për menaxhimin e
-          <b><u style="color: #5d87ff">Planeve</u></b> !
+          <b><u style="color: #5d87ff">Profesioneve</u></b> !
         </h2>
-      <div class="d-flex justify-content-center">
 
+        <h3 style="margin-bottom: 40px">
+          Në këtë faqe bëhet <span style="color: #5d87ff">shtimi</span>, paraqitja dhe <span style="color: #e72d18">fshirja</span> e profesioneve të punëtorve të shkollës!
+        </h3> 
+
+      <div class="d-flex justify-content-center">
         <div class="container-fluid">
-          <form action="/plan/register-plan" id="planForm" method="post" enctype="multipart/form-data">
+          <form action="/role/register-role" id="roleForm" method="post">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Roli</label>
-              <input type="text" class="form-control" id="planYear" aria-describedby="emailHelp">
+              <label for="exampleInputEmail1" class="form-label">Profesioni</label>
+              <input type="text" class="form-control" id="roleName" aria-describedby="emailHelp" placeholder="Shembull: Psikolog">
             </div>
-            <button type="submit" class="btn btn-primary">Ruaj</button>
+            <div class="mb-3 row align-items-center">
+              <div class="col-auto">
+                <label class="form-check-label" for="roleCheck">A jep mësim ky lloj i profesionit? (Nëse po, klikoni katrorin e vogël)</label>
+              </div>
+              <div class="col-auto">
+                <input type="checkbox" class="form-check-input" id="roleCheck" name="roleCheck">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Shto</button>
           </form>
         <table class="table">
           <thead>
             <tr>
               <th>Nr.</th>
-              <th>Emri i Rolit</th>
+              <th>Emri i Profesionit</th>
+              <th>A jep mësim</th>
               <th>Opsione</th>
             </tr>
           </thead>
@@ -143,7 +169,7 @@
   
     </div>
   </div>
-  <script src="/js/planList.js"></script>
+  <script src="/js/addRoleList.js"></script>
   <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
   <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/css/admin-js/sidebarmenu.js"></script>
@@ -151,31 +177,36 @@
   <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script>
-    const planForm = document.getElementById('planForm');
+    const roleForm = document.getElementById('roleForm');
 
-    planForm.addEventListener('submit', async(e)=> {
+    roleForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
-    const formData = new FormData()
-    const planYear = document.getElementById('planYear').value;
-    const planDocument = document.getElementById('planDocument').files[0];
-    formData.append('planYear', planYear)
-    formData.append('planDocumentFile', planDocument)
-    
-    const res = await fetch('/plan/register-plan', {
-      method: 'POST', 
-      body: formData
-    });
+    const roleName = document.getElementById('roleName').value;
+    const roleCheck = document.getElementById('roleCheck').checked;
+
+    const res = await fetch('/role/register-role', {
+        method: 'POST',
+        body: JSON.stringify({
+          id: e.target.id,
+          roleName: roleName,
+          roleChecker: roleCheck,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
     const data = await res.json();
 
     if (data.status === 'success') {
           Swal.fire({
             icon: 'success',
-            title: 'Plani Zhvillimor u shtua!',
+            title: 'Roli u shtua!',
             text: 'Sukses!',
             timer: 1500,
             showConfirmButton: false,
           }).then(() => {
-            location.assign('/admin-plan');
+            location.assign('/admin-add-role');
           });
         }
   }); 
@@ -183,3 +214,4 @@
 </body>
 
 </html>
+

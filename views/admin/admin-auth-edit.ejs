@@ -71,6 +71,18 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link"
+                  href="/admin-add-role"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-pencil"></i>
+                  </span>
+                  <span class="hide-menu">Profesionet</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
                   href="/admin-staff"
                   aria-expanded="false"
                 >
@@ -154,13 +166,15 @@
       <!--  Main wrapper -->
       <div class="body-wrapper">
         <div class="container-fluid">
-          <h2 style="font-size: 36px; margin-bottom: 20px">
+          <h2 style="font-size: 36px; margin-bottom: 25px">
             Ju tani po <u style="color: #da930e">ndryshoni</u> Llogarine!
           </h2>
-          <h3 style="font-size: 20px; margin-bottom: 35px">
-            <b>Informatë</b>: Ju mund të ndryshoni Email dhe Password, apo vetëm
-            njëren prej tyre nëse dëshironi.
+
+          <h3 style="margin-bottom: 40px">
+            Në këtë faqe mund të ndryshoni Email-in apo Fjalëkalimin e llogarisë
+            suaj.
           </h3>
+
           <form id="authForm">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email:</label>
@@ -174,10 +188,10 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
-                >Password:</label
+                >Fjalëkalimi:</label
               >
               <input
-                placeholder="Passwordi juaj"
+                placeholder="Fjalëkalimi juaj"
                 type="password"
                 class="form-control"
                 id="authPassword"

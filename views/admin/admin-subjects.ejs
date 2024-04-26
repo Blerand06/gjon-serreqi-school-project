@@ -40,6 +40,18 @@
               </a>
             </li>
             <li class="sidebar-item">
+              <a
+                class="sidebar-link"
+                href="/admin-add-role"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa-solid fa-pencil"></i>
+                </span>
+                <span class="hide-menu">Profesionet</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
               <a class="sidebar-link" href="/admin-staff" aria-expanded="false">
                 <span>
                   <i class="fa-solid fa-user"></i>
@@ -111,10 +123,11 @@
     <div class="body-wrapper">
 
       <div class="container-fluid">
-        <a href="/"><h2 style="font-size: 36px; margin-bottom: 50px">
+        <a href="/"><h2 style="font-size: 36px; margin-bottom: 25px">
           Faqja për menaxhimin e
           <b><u style="color: #5d87ff">Lëndëve</u></b> !
         </h2></a>   
+        <h3 style="margin-bottom: 40px;">Në këtë faqe bëhet <span style="color:#5d87ff ;">shtimi</span> dhe paraqitja e lëndëve. Pranë tyre, janë gjithashtu mundësitë për <span style="color: orange;">ndryshimin</span> ose <span style="color: #e72d18;">fshirjen</span> e tyre.</h3>
         <form action="/subjects/register-subjects" id="subjectsForm" method="post" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Emri i Lëndës</label>
@@ -144,7 +157,7 @@
           </div>
           <div class=" form-check">
           </div>
-          <button type="submit" class="btn btn-primary mb-5">Ruaj</button>
+          <button type="submit" class="btn btn-primary mb-5">Shto</button>
         </form>
         <table class="table">
           <thead>

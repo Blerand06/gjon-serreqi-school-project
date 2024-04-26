@@ -4,6 +4,7 @@ const Staff = require('../models/staffModel');
 const Plan = require('../models/planModel');
 const User = require('../models/authModel');
 const Contact = require('../models/contactModel');
+const Role = require('../models/addRoleModel');
 const moment = require('moment');
 
 // Rendering Pages (PUBLIC)
@@ -64,7 +65,8 @@ const adminPlanPage = (req, res) => {
 };
 const adminStaffPage = async (req, res) => {
   const subject = await Subject.find();
-  res.render('admin/admin-staff', { subject });
+  const role = await Role.find();
+  res.render('admin/admin-staff', { subject, role });
 };
 const adminSubjectsPage = async (req, res) => {
   try {
@@ -77,8 +79,8 @@ const adminSubjectsPage = async (req, res) => {
 const adminContactPage = async (req, res) => {
   res.render('admin/admin-contact');
 };
-const adminAddRoleSubject = async (req, res) => {
-  res.render('admin/admin-add-role-subject');
+const adminAddRole = async (req, res) => {
+  res.render('admin/admin-addRole');
 };
 
 // Rendering Pages (PRIVATE/ADMIN - EDITS)
@@ -148,7 +150,7 @@ module.exports = {
   adminSubjectsPage,
   adminContactPage,
   expandedAdminContactPage,
-  adminAddRoleSubject,
+  adminAddRole,
 
   // PRIVATE/ADMIN - EDITS exporting
   adminAuthPageEdit,

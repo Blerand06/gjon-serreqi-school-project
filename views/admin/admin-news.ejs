@@ -71,6 +71,18 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link"
+                  href="/admin-add-role"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-pencil"></i>
+                  </span>
+                  <span class="hide-menu">Profesionet</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
                   href="/admin-staff"
                   aria-expanded="false"
                 >
@@ -154,10 +166,18 @@
       <!--  Main wrapper -->
       <div class="body-wrapper">
         <div class="container-fluid">
-          <h2 style="font-size: 36px; margin-bottom: 50px">
+          <h2 style="font-size: 36px; margin-bottom: 25px">
             Faqja për menaxhimin e
             <b><u style="color: #5d87ff">Lajmeve</u></b> !
           </h2>
+
+          <h3 style="margin-bottom: 40px">
+            Në këtë faqe bëhet <span style="color: #5d87ff">shtimi</span> dhe
+            paraqitja e lajmeve. Pranë tyre, janë gjithashtu mundësitë për
+            <span style="color: orange">ndryshimin</span> ose
+            <span style="color: #e72d18">fshirjen</span> e tyre.
+          </h3>
+
           <form
             action="/news/register-news"
             id="newsForm"
@@ -225,7 +245,7 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Ruaj</button>
+            <button type="submit" class="btn btn-primary">Shto</button>
           </form>
 
           <table class="table">
