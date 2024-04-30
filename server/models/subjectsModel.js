@@ -19,6 +19,10 @@ const subjectsSchema = mongoose.Schema(
       enum: ['I-IX', 'II-IX', 'VI-IX', 'I-V', 'VII-IX'],
       required: true,
     },
+    role: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Role',
+    },
   },
   { timestamps: true }
 );

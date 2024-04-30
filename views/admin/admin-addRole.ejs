@@ -33,14 +33,6 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/admin-subjects" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-book"></i>
-                </span>
-                <span class="hide-menu">Lëndët</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
               <a
                 class="sidebar-link"
                 href="/admin-add-role"
@@ -50,6 +42,14 @@
                   <i class="fa-solid fa-pencil"></i>
                 </span>
                 <span class="hide-menu">Profesionet</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/admin-subjects" aria-expanded="false">
+                <span>
+                  <i class="fa-solid fa-book"></i>
+                </span>
+                <span class="hide-menu">Lëndët</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -137,25 +137,17 @@
         <div class="container-fluid">
           <form action="/role/register-role" id="roleForm" method="post">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Profesioni</label>
-              <input type="text" class="form-control" id="roleName" aria-describedby="emailHelp" placeholder="Shembull: Psikolog">
-            </div>
-            <div class="mb-3 row align-items-center">
-              <div class="col-auto">
-                <label class="form-check-label" for="roleCheck">A jep mësim ky lloj i profesionit? (Nëse po, klikoni katrorin e vogël)</label>
-              </div>
-              <div class="col-auto">
-                <input type="checkbox" class="form-check-input" id="roleCheck" name="roleCheck">
-              </div>
+              <label for="roleName" class="form-label">Profesioni</label>
+              <input type="text" class="form-control" id="roleName" aria-describedby="roleNameHelp" placeholder="Shembull: Psikolog/e">
             </div>
             <button type="submit" class="btn btn-primary">Shto</button>
           </form>
+          
         <table class="table">
           <thead>
             <tr>
               <th>Nr.</th>
               <th>Emri i Profesionit</th>
-              <th>A jep mësim</th>
               <th>Opsione</th>
             </tr>
           </thead>
@@ -182,14 +174,13 @@
     roleForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
     const roleName = document.getElementById('roleName').value;
-    const roleCheck = document.getElementById('roleCheck').checked;
 
     const res = await fetch('/role/register-role', {
         method: 'POST',
         body: JSON.stringify({
           id: e.target.id,
           roleName: roleName,
-          roleChecker: roleCheck,
+
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -201,7 +192,7 @@
     if (data.status === 'success') {
           Swal.fire({
             icon: 'success',
-            title: 'Roli u shtua!',
+            title: 'Profesioni u shtua!',
             text: 'Sukses!',
             timer: 1500,
             showConfirmButton: false,

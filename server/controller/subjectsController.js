@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const registerSubject = async (req, res) => {
-  const { subjectName, subjectCycle, subjectClass, subjectIcon } = req.body;
+  const { subjectName, subjectCycle, subjectClass, subjectIcon, role } =
+    req.body;
 
   try {
     let subject_number = 1;
@@ -19,6 +20,7 @@ const registerSubject = async (req, res) => {
       subjectClass,
       subjectIcon: req.file.filename,
       subject_number,
+      role,
     });
 
     await newSubject.save();

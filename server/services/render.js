@@ -70,8 +70,9 @@ const adminStaffPage = async (req, res) => {
 };
 const adminSubjectsPage = async (req, res) => {
   try {
-    const subject = req.subject;
-    res.render('admin/admin-subjects', { subject });
+    const subject = await req.subject;
+    const role = await Role.find();
+    res.render('admin/admin-subjects', { subject, role });
   } catch (error) {
     res.redirect('back');
   }
@@ -80,7 +81,8 @@ const adminContactPage = async (req, res) => {
   res.render('admin/admin-contact');
 };
 const adminAddRole = async (req, res) => {
-  res.render('admin/admin-addRole');
+  const subject = await Subject.find();
+  res.render('admin/admin-addRole', { subject });
 };
 
 // Rendering Pages (PRIVATE/ADMIN - EDITS)

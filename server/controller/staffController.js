@@ -1,14 +1,8 @@
 const Staff = require('../models/staffModel');
-const fs = require('fs');
-const path = require('path');
 
 const registerStaff = async (req, res) => {
   const { staffName, staffPhoto, staffCV, staffRole } = req.body;
   let staffSubject = req.body.staffSubject;
-
-  if (staffRole === 'Drejtor/eshë' || staffRole === 'Psikolog/e') {
-    staffSubject = '';
-  }
 
   try {
     let staff_number = 1;

@@ -10,7 +10,6 @@ const getRole = async () => {
         const trContent = `
                                   <td>${i + 1}</td>
                                   <td>${Role[i].roleName}</td>
-                                  <td>${Role[i].roleChecker ? 'Po' : 'Jo'}</td>
                                   <td>
                                   <a style="cursor: pointer;"><span delete="true" style="color: red;" id="${
                                     Role[i]._id
