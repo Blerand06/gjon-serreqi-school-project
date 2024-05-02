@@ -12,11 +12,9 @@ const staffSchema = mongoose.Schema(
     staffCV: {
       type: String,
     },
-    staffRole: {
-      type: String,
-    },
-    staffSubject: {
-      type: String,
+    role: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Role',
     },
   },
   { timestamps: true }

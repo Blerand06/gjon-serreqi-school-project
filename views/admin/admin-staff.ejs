@@ -156,7 +156,7 @@
 
             <select id="staff-subject"  style="border: none; padding: 5px;">
               <% for (let i = 0; i < subject.length ; i++) {%>
-              <option value="<%=subject[i].role.roleName%>" dt-role="<%=subject[i].role.roleName%>"><%= subject[i].role.subjectName %></option>
+              <option value="<%=subject[i].subjectName%>" dt-role="<%=subject[i].role.roleName%>"><%=subject[i].subjectName%></option>
               <%}%>
             </select>
 
@@ -198,18 +198,10 @@
     const staffName = document.getElementById('staff-name').value;
     const staffPhoto = document.getElementById('staff-photo').files[0];
     const staffCV = document.getElementById('staff-cv').files[0];
-    const staffRole = document.getElementById('staff-role').value;
-    let staffSubject = '';
-
-    if (staffRole) {
-      staffSubject = document.getElementById('staff-subject').value;
-    }
 
     formData.append('staffName', staffName)
-    formData.append('staffRole', staffRole)
     formData.append('photoFile', staffPhoto);
     formData.append('cvFile', staffCV);
-    formData.append('staffSubject', staffSubject)
 
     const res = await fetch('/staff/register-staff', {
       method: 'POST', 
