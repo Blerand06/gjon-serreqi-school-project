@@ -156,7 +156,7 @@
 
             <select id="staff-subject"  style="border: none; padding: 5px;">
               <% for (let i = 0; i < subject.length ; i++) {%>
-              <option value="<%=subject[i].subjectName%>"><%= subject[i].subjectName %></option>
+              <option value="<%=subject[i].role.roleName%>" dt-role="<%=subject[i].role.roleName%>"><%= subject[i].role.subjectName %></option>
               <%}%>
             </select>
 

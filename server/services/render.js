@@ -64,7 +64,7 @@ const adminPlanPage = (req, res) => {
   res.render('admin/admin-plan');
 };
 const adminStaffPage = async (req, res) => {
-  const subject = await Subject.find();
+  const subject = await Subject.find().populate('role', 'roleName');
   const role = await Role.find();
   res.render('admin/admin-staff', { subject, role });
 };
