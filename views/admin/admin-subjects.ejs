@@ -131,7 +131,7 @@
         <form action="/subjects/register-subjects" id="subjectsForm" method="post" enctype="multipart/form-data">
           
           <div class="mb-3">
-            <label for="role" class="form-label">Tek cili profesion doni ta shtoni lëndën?</label>
+            <label for="role" class="form-label">Tek cili profesion dëshironi ta shtoni lëndën?</label>
             <select class="form-select" id="role" aria-describedby="professionHelp">
               <% for (let i = 0; i < role.length; i++)  { %>
               <option value="<%= role[i]._id %>"><%= role[i].roleName %></option>
@@ -145,7 +145,7 @@
           </div>
 
           <div class="mb-3">
-            <label for="imgimgimg" class="form-label">Ikona</label>
+            <label for="imgimgimg" class="form-label">Fotoja e Lëndës</label>
             <input type="file" class="form-control" id="Icon" aria-describedby="emailHelp" name="iconImage" required>
           </div>
 
@@ -174,7 +174,7 @@
             <tr>
               <th>Nr.</th>
               <th>Emri Lëndës</th>
-              <th>Ikona</th>
+              <th>Fotoja e Lëndës</th>
               <th>Cikli</th>
               <th>Klasët</th>
               <th>Opsione</th>
