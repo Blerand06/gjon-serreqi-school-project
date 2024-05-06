@@ -1,7 +1,14 @@
 const Staff = require('../models/staffModel');
 
 const registerStaff = async (req, res) => {
-  const { staffName, staffPhoto, staffCV } = req.body;
+  const {
+    staffName,
+    staffPhoto,
+    staffCV,
+    staffRole,
+    staffSubject,
+    staffCategory,
+  } = req.body;
 
   try {
     let staff_number = 1;
@@ -15,6 +22,9 @@ const registerStaff = async (req, res) => {
       staffName,
       staffPhoto: req.files['photoFile'][0].filename,
       staffCV: req.files['cvFile'][0].filename,
+      staffRole,
+      staffSubject,
+      staffCategory,
       staff_number,
     });
 

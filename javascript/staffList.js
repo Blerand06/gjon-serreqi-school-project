@@ -16,7 +16,7 @@ const getStaff = async () => {
         }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>
         <td>${staffCVCheck}</td>
         <td>${Staff[i].staffRole}</td>
-        <td>${Staff[i].staffSubject}</td>
+        <td>${Staff[i].staffCategory}</td>
         <td class="primary d-flex">
                                 <a href="/admin-staff/${
                                   Staff[i]._id

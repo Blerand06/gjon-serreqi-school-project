@@ -136,6 +136,15 @@
             <input id="staff-name" type="text" class="form-control" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
+            <label for="staff-category" class="form-label">Kategoria e Punëtorit</label>
+            <select id="staff-category" class="form-select" aria-describedby="emailHelp">
+                <option value="Bordi Shkollor">Bordi Shkollor</option>
+                <option value="Arsimtar/e">Arsimtar/e</option>
+                <option value="Mësues/e">Mësues/e</option>
+                <option value="Punëtor Teknik">Punëtor Teknik</option>
+            </select>
+          </div>        
+          <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Foto</label>
             <input name="photoFile" id="staff-photo" type="file" required class="form-control">
           </div>
@@ -149,8 +158,10 @@
             <select id="staff-role" style="border: none; padding: 5px;">
               <% for (let i = 0; i < role.length; i++) { %>
                 <option value="<%= role[i].roleName %>"> <%= role[i].roleName %></option>
+              <% } %>
               </select>
               
+              <% for (let i = 0; i < role.length; i++) { %>
               <% if (role[i].roleChecker === true) { %> 
                 <label id="subject-placeholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
                 <select id="staff-subject" style="border: none; padding: 5px;">
@@ -173,7 +184,7 @@
               <th>Foto</th>
               <th>CV-ja</th>
               <th>Profesioni</th>
-              <th>Lënda</th>
+              <th>Kategoria e Profesionit</th>
               <th>Opsione</th>
             </tr>
           </thead>
@@ -199,10 +210,16 @@
     const staffName = document.getElementById('staff-name').value;
     const staffPhoto = document.getElementById('staff-photo').files[0];
     const staffCV = document.getElementById('staff-cv').files[0];
+    const staffRole = document.getElementById('staff-role').value;
+    const staffSubject = document.getElementById('staff-subject').value;
+    const staffCategory = document.getElementById('staff-category').value;
 
     formData.append('staffName', staffName)
     formData.append('photoFile', staffPhoto);
     formData.append('cvFile', staffCV);
+    formData.append('staffRole',staffRole);
+    formData.append('staffSubject',staffSubject);
+    formData.append('staffCategory',staffCategory);
 
     const res = await fetch('/staff/register-staff', {
       method: 'POST', 

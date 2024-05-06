@@ -20,16 +20,16 @@ const mainPage = async (req, res) => {
 const staffPage = async (req, res) => {
   const staff = await Staff.find();
   const staffBoard = await Staff.find({
-    staffRole: { $in: ['Drejtor/eshë', 'Sekretar/eshë', 'Zëvendësdrejtor/e'] },
+    staffCategory: 'Bordi Shkollor',
   });
   const staffTeacher = await Staff.find({
-    staffRole: 'Arsimtar/e',
+    staffCategory: 'Arsimtar/e',
   });
   const staffElemtaryTeacher = await Staff.find({
-    staffRole: 'Mësues/e',
+    staffCategory: 'Mësues/e',
   });
   const staffTechnicalWorker = await Staff.find({
-    staffRole: 'Punëtor Teknik',
+    staffCategory: 'Punëtor Teknik',
   });
   res.render('staff', {
     staff,
@@ -64,10 +64,13 @@ const adminPlanPage = (req, res) => {
   res.render('admin/admin-plan');
 };
 const adminStaffPage = async (req, res) => {
-  const subject = await Subject.find().populate('role', 'roleName');
+  const subject = await Subject.find();
   const role = await Role.find();
   res.render('admin/admin-staff', { subject, role });
 };
+
+//populate('role', 'roleName'); used for the adminStaffPage above
+
 const adminSubjectsPage = async (req, res) => {
   try {
     const subject = await req.subject;

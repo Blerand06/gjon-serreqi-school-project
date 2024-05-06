@@ -170,6 +170,15 @@
               />
             </div>
             <div class="mb-3">
+              <label for="staff-category" class="form-label">Kategoria e Punëtorit</label>
+              <select id="staff-category" class="form-select" aria-describedby="emailHelp">
+                  <option value="Bordi Shkollor">Bordi Shkollor</option>
+                  <option value="Arsimtar/e">Arsimtar/e</option>
+                  <option value="Mësues/e">Mësues/e</option>
+                  <option value="Punëtor Teknik">Punëtor Teknik</option>
+              </select>
+            </div> 
+            <div class="mb-3">
               <label for="staff-photo" class="form-label">Foto</label>
               <input type="file" class="form-control" id="staff-photo" name="photoFile" />
             </div>
@@ -214,12 +223,14 @@
         const staffPhoto = document.getElementById('staff-photo').files[0];
         const staffCV = document.getElementById('staff-cv').files[0];
         const staffRole = document.getElementById('staff-role').value;
+        const staffCategory = document.getElementById('staff-category').value;
         const staffSubject = document.getElementById('staff-subject').value;
 
         formData.append('id',location.pathname.split('/')[2])
         formData.append('staffName',staffName)
         formData.append('staffRole',staffRole)
         formData.append('staffSubject',staffSubject)
+        formData.append('staffCategory',staffCategory)
         
         if(staffPhoto) {
           formData.append('photoFile',staffPhoto)

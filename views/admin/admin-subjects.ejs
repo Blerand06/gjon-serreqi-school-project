@@ -130,14 +130,15 @@
         <h3 style="margin-bottom: 40px;">Në këtë faqe bëhet <span style="color:#5d87ff ;">shtimi</span> dhe paraqitja e lëndëve. Pranë tyre, janë gjithashtu mundësitë për <span style="color: orange;">ndryshimin</span> ose <span style="color: #e72d18;">fshirjen</span> e tyre.</h3>
         <form action="/subjects/register-subjects" id="subjectsForm" method="post" enctype="multipart/form-data">
           
-          <div class="mb-3">
+          <!-- Unfinished Dynamic Role-Subject relations -->
+          <!-- <div class="mb-3">
             <label for="role" class="form-label">Tek cili profesion dëshironi ta shtoni lëndën?</label>
             <select class="form-select" id="role" aria-describedby="professionHelp">
               <% for (let i = 0; i < role.length; i++)  { %>
               <option value="<%= role[i]._id %>"><%= role[i].roleName %></option>
               <% } %>
             </select>           
-          </div>
+          </div> -->
 
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Emri i Lëndës</label>
@@ -203,12 +204,10 @@
     const subjectIcon = document.getElementById('Icon').files[0];
     const subjectCycle = document.getElementById('Cycle').value;
     const subjectClass = document.getElementById('Class').value;  
-    const role = document.getElementById('role').value;
 
     formData.append('subjectName',subjectName)
     formData.append('subjectCycle',subjectCycle)
     formData.append('subjectClass',subjectClass)
-    formData.append('role', role)
       if(subjectIcon){
         formData.append('iconImage',subjectIcon)
       }
