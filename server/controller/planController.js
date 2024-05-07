@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const registerPlan = async (req, res) => {
-  const { planYear, planDocument } = req.body;
+  const { planDocument } = req.body;
 
   try {
     let plan_number = 1;
@@ -14,7 +14,6 @@ const registerPlan = async (req, res) => {
       plan_number = parseInt(planOnDb.plan_number) + 1;
     }
     const newPlan = new Plan({
-      planYear,
       planDocument: req.file.filename,
       plan_number,
     });

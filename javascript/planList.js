@@ -9,7 +9,6 @@ const getPlan = async () => {
         const tr = document.createElement('tr');
         const trContent = `
                                 <td>${i + 1}</td>
-                                <td>${Plan[i].planYear}</td>
                                 <td><img src="/uploads/${
                                   Plan[i].planDocument
                                 }"style="width: 30px; height: 30px; object-fit: cover; border-radius:5px;"></img></td>

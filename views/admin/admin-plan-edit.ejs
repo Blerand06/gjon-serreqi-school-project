@@ -143,13 +143,9 @@
             Ju tani po <u style="color: #da930e">ndryshoni</u> Planin Zhvillimor!
           </h2>
           <h3 style="font-size: 20px; margin-bottom: 35px">
-            <b>Informatë</b>: Ju mund të ndryshoni Vitin dhe Dokumentin, apo vetëm njëren prej tyre nëse dëshironi.
+            <b>Informatë</b>: Ju mund të ndryshoni Foton.
           </h3>
           <form id="planForm">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Viti</label>
-              <input value="<%= plan.planYear %>" type="text" class="form-control" id="planYear" aria-describedby="emailHelp">
-            </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Foto</label>
               <input type="file" class="form-control" id="planDocumentFile" aria-describedby="emailHelp" name="planDocumentFile">
@@ -176,11 +172,9 @@
     e.preventDefault();
 
     const formData = new FormData()
-    const planYear = document.getElementById('planYear').value;
     const planDocument = document.getElementById('planDocumentFile').files[0];
 
     formData.append('id',location.pathname.split('/')[2])
-    formData.append('planYear', planYear)
     formData.append('planDocumentFile', planDocument)
 
     const res = await fetch('/plan/update-plan', {

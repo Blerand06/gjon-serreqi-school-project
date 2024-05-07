@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 const planSchema = mongoose.Schema(
   {
-    planYear: {
-      type: String,
-      required: true,
-    },
     planDocument: {
       type: String,
       required: true,
