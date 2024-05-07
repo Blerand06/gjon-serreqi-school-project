@@ -33,6 +33,8 @@ router.get(
 
 router.get('/admin-add-role', requireAuth, services.adminAddRole);
 
+router.get('/admin-help', requireAuth, services.adminHelpPage);
+
 // Routing Pages (PRIVATE/ADMIN - EDITS)
 router.get('/admin-auth-edit/:id', requireAuth, services.adminAuthPageEdit);
 

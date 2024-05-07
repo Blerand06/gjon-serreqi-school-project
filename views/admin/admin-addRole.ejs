@@ -100,6 +100,18 @@
                 <span class="hide-menu">Përditëso Llogarinë</span>
               </a>
             </li> 
+            <li class="sidebar-item">
+              <a
+                class="sidebar-link"
+                href="/admin-help"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa-solid fa-question"></i>
+                </span>
+                <span class="hide-menu">Si ta përdorni faqen</span>
+              </a>
+            </li> 
             <li class="sidebar-item mt-5">
               <a
                 class="sidebar-link"
@@ -141,12 +153,6 @@
               <label for="roleName" class="form-label">Profesioni</label>
               <input type="text" class="form-control" id="roleName" aria-describedby="roleNameHelp" placeholder="Shembull: Psikolog/e">
             </div>
-            <div class="mb-3">
-              <label class="form-check-label align-middle" for="roleCheck" style="vertical-align: middle;">Nëse ky profesion është <b>Arsimtar/e</b>, atëherë klikoni katrorin në të djatht! -></label>
-              <div class="form-check d-inline-block align-middle" style="margin-left: 5px;">
-                <input class="form-check-input" type="checkbox" id="roleCheck">
-              </div>
-            </div>
             <button type="submit" class="btn btn-primary">Shto</button>
           </form>
                                         
@@ -181,14 +187,12 @@
     roleForm.addEventListener('submit', async(e)=> {
     e.preventDefault();
     const roleName = document.getElementById('roleName').value;
-    const roleChecker = document.getElementById('roleCheck').checked;
 
     const res = await fetch('/role/register-role', {
         method: 'POST',
         body: JSON.stringify({
           id: e.target.id,
           roleName: roleName,
-          roleChecker: roleChecker,
         }),
         headers: {
           'Content-Type': 'application/json',

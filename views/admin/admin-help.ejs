@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Paneli i të dhënave</title>
+    <title>Dashboardi</title>
     <link
       rel="shortcut icon"
       type="image/png"
@@ -35,7 +35,7 @@
           <div
             class="brand-logo d-flex align-items-center justify-content-between"
           >
-            <a class="text-nowrap logo-img">
+            <a href="" class="text-nowrap logo-img">
               <img
                 src="/css/admin-img/logos/logo-skolla.png"
                 height="190px"
@@ -169,7 +169,6 @@
               </li>
             </ul>
           </nav>
-
           <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
@@ -179,83 +178,111 @@
       <div class="body-wrapper">
         <div class="container-fluid">
           <h2 style="font-size: 36px; margin-bottom: 50px">
-            Ju tani po <u style="color: #da930e">ndryshoni</u> Lajmet!
+            Ne pikat në vazhdim do të
+            <span style="color: rgb(35, 173, 0)"><u>njoftoheni</u></span> se si
+            të përdorni faqen e administrimit, që shërben për kontrollimin e
+            faqes së shkollës "<span style="color: #5d87ff"
+              ><u>Gjon Serreqi</u></span
+            >"!
           </h2>
-          <h3 style="font-size: 20px; margin-bottom: 35px">
-            <b>Informatë</b>: Ju mund të <u>ndryshoni</u>
-            Titullin, Foton, Përshkrimin, Tagjet, Titullin Meta dhe Përshkrimin
-            Meta, apo vetëm njëren prej tyre nëse dëshironi.
-          </h3>
-          <form id="newsForm" enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Titulli</label>
-              <input
-                value="<%= news.newsTitle %>"
-                type="text"
-                class="form-control"
-                id="newsTitle"
-                aria-describedby="emailHelp"
-              />
+          <div class="card w-10 mt-5">
+            <div class="card-body">
+              <h5 class="mb-4">
+                <i class="fa-solid fa-pencil"></i>
+                <span style="color: #5d87ff; font-weight: 700"
+                  >Profesionet</span
+                >
+                - Si fillim, ju duhet të caktoni profesionin që dëshironi të
+                shtoni. Emri i profesionit jepet nën "Profesioni". Më pas,
+                klikoni butonin "Shto". Pas shtimit të profesionit, mund të
+                shihni profesionet e shtuara në tabelën më poshtë, ku gjithashtu
+                mund t'i fshini. Profesionet mund të shihen në faqe tek "STAFI".
+              </h5>
+              <h5 class="mb-4">
+                <i class="fa-solid fa-book"></i>
+                <span style="color: #5d87ff; font-weight: 700">Lëndët</span> -
+                Pas krijimit të profesionit, tani mund të shtoni edhe lëndën. Në
+                këtë faqe, ju mund të shtoni emrin e lëndës, foton e lëndës,
+                ciklin mësimor të tyre të kohës, si dhe klasat përkatëse.
+                Paraqitja e tyre bëhet poshtë në tabelë, ku mund të ndryshoni
+                dhe fshini çdo lëndë. Lëndët mund të shihen në faqe tek
+                "BALLINA".
+              </h5>
+              <h5 class="mb-4">
+                <i class="fa-solid fa-user"></i>
+                <span style="color: #5d87ff; font-weight: 700">Stafi</span> -
+                Tek stafi, ju shtoni stafin e shkollës. Të dhënat që duhet të
+                jepen janë emri dhe mbiemri, kategoria e punëtorit, fotoja, CV,
+                profesioni (të cilat i keni shtuar nga faqja "Profesionet"), si
+                dhe lënda (të cilat i keni shtuar nga faqja "Lëndët"). Paraqitja
+                e tyre bëhet poshtë në tabelë, ku mund të ndryshoni dhe fshini
+                çdo pjesëtar të stafit. Anëtarët e stafit mund të shihen në faqe
+                tek "STAFI".
+              </h5>
+              <h5 class="mb-4">
+                <i class="fa-solid fa-file"></i>
+                <span style="color: #5d87ff; font-weight: 700"
+                  >Plani Zhvillimor</span
+                >
+                - Plani Zhvillimor ka për qëllim paraqitjen e fotografive të
+                ndryshme, ku shihen punime të ndryshme në shkollë që do të
+                kryhen në të ardhmen, apo që janë në krijim e sipër. Vlerat që
+                duhet të jepen janë Viti dhe Fotoja. Paraqitja e tyre bëhet
+                poshtë në tabelë, ku mund të ndryshoni dhe fshini çdo plan.
+                Planet mund të shihen në faqe tek "RRETH NESH".
+              </h5>
+              <h5 class="mb-4">
+                <i class="fa-solid fa-envelope"></i>
+                <span style="color: #5d87ff; font-weight: 700">Lajmet</span> -
+                Tek faqja e lajmeve nevojiten informata që shërbejnë për
+                publikimin e lajmeve më të reja rreth shkollës. Përveç vlerave
+                për lajmet si titulli, fotot dhe përshkrimi, duhet të japim të
+                dhëna edhe për tagjet, titullin meta, dhe përshkrimin meta, të
+                cilat shërbejnë që lajmet e publikuara të jenë sa më lehtë të
+                gjetura në Google. Pra, tek tagjet duhet të jepni tagjet të
+                ndryshme me fjalë të kapshme rreth lajmit dhe duhet të ndahen me
+                një presje, kurse titulli meta dhe përshkrimi meta duhet të jenë
+                të njëjta me titullin dhe përshkrimin e shkuar më lartë në të
+                njëjtën faqe. Paraqitja e tyre bëhet poshtë në tabelë, ku mund
+                të ndryshoni dhe të fshini çdo lajm. Lajmet mund të shihen në
+                faqe tek "LAJMET".
+              </h5>
+              <h5 class="mb-4">
+                <i class="fa-solid fa-message"></i>
+                <span style="color: #5d87ff; font-weight: 700"
+                  >Mesazhet e Pranuara</span
+                >
+                - Tek mesazhet e pranuara, ju mund të shihni një listë me
+                mesazhe të dërguara nga përdoruesit e faqes, që mund të jenë
+                prindërit apo edhe të tjerë. Këto informata vijnë nga pjesa e
+                'Kontaktit' në faqen e shkollës, ku përdoruesit mund të dërgojnë
+                mesazh tek shkolla. Poshtë e keni listën ku mund të klikoni
+                'Shiko të gjithën', ku mund ta shikoni mesazhin e plotë, si dhe
+                logon e kuqe që shërben për fshirjen e atij mesazhi.
+              </h5>
+              <h5 class="mb-4">
+                <i class="fa-solid fa-user-pen"></i>
+                <span style="color: #5d87ff; font-weight: 700"
+                  >Përditëso Llogarinë</span
+                >
+                - Këtu mund të ndryshoni emailin ose fjalëkalimin e përdoruesit.
+                Mund të ndryshoni të dyat, ose vetëm njërën prej tyre. Ju duhet
+                ti mbani mend mirë për të qenë në gjendje të futni në
+                administratën që jeni aktualisht.
+              </h5>
+              <h5>
+                <i
+                  class="fa-solid fa-arrow-right-from-bracket"
+                  style="color: #e72d18"
+                ></i>
+                <span style="color: #e72d18; font-weight: 700">Shkyçuni</span> -
+                Këtu mund të bëhet shkyçja nga administrata. Për të futur prapë,
+                duhet të shkoni tek "Kyqu" në faqen e shkollës dhe të jepni
+                emailin dhe fjalëkalimin e saktë. Vetëm stafi i autorizuar duhet
+                pasur këtë fuqi.
+              </h5>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Foto</label>
-              <input
-                type="file"
-                class="form-control"
-                id="newsPhoto"
-                name="newsPhotoFile"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
-                >Përshkrimi</label
-              >
-              <textarea
-                type="text"
-                class="form-control"
-                id="newsDescription"
-                aria-describedby="emailHelp"
-              >
-<%= news.newsDescription %></textarea
-              >
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Tagjet</label>
-              <input
-                value="<%= news.newsTag %>"
-                type="text"
-                class="form-control"
-                id="newsTag"
-                aria-describedby="emailHelp"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
-                >Titulli Meta</label
-              >
-              <input
-                value="<%= news.newsMetaTitle %>"
-                type="text"
-                class="form-control"
-                id="newsMetaTitle"
-                aria-describedby="emailHelp"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
-                >Përshkrimi Meta</label
-              >
-              <textarea
-                type="text"
-                class="form-control"
-                id="newsMetaDescription"
-                aria-describedby="emailHelp"
-              >
-<%= news.newsMetaDescription %></textarea
-              >
-            </div>
-            <button type="submit" class="btn btn-primary">Ndrysho</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -264,51 +291,5 @@
     <script src="/css/admin-js/sidebarmenu.js"></script>
     <script src="/css/admin-js/app.min.js"></script>
     <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-      const newsForm = document.getElementById('newsForm');
-
-      newsForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-
-        const newsTitle = document.getElementById('newsTitle').value;
-        const newsPhoto = document.getElementById('newsPhoto').files[0];
-        const newsDescription =
-          document.getElementById('newsDescription').value;
-        const newsTag = document.getElementById('newsTag').value;
-        const newsMetaTitle = document.getElementById('newsMetaTitle').value;
-        const newsMetaDescription = document.getElementById(
-          'newsMetaDescription'
-        ).value;
-
-        formData.append('id', location.pathname.split('/')[2]);
-        formData.append('newsTitle', newsTitle);
-        formData.append('newsPhotoFile', newsPhoto);
-        formData.append('newsDescription', newsDescription);
-        formData.append('newsTag', newsTag);
-        formData.append('newsMetaTitle', newsMetaTitle);
-        formData.append('newsMetaDescription', newsMetaDescription);
-
-        const res = await fetch('/news/update-news', {
-          method: 'PUT',
-          body: formData,
-        });
-        const data = await res.json();
-
-        if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Lajmet u ndryshuan!',
-            text: 'Sukses!',
-            timer: 1000,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-news');
-          });
-        }
-      });
-    </script>
   </body>
 </html>

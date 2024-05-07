@@ -2,7 +2,7 @@ const Role = require('../models/addRoleModel');
 const Subject = require('../models/subjectsModel');
 
 const registerRole = async (req, res) => {
-  const { roleName, roleChecker } = req.body;
+  const { roleName } = req.body;
 
   try {
     let role_number = 1;
@@ -15,7 +15,6 @@ const registerRole = async (req, res) => {
 
     const newRole = new Role({
       roleName,
-      roleChecker,
       role_number,
     });
 
