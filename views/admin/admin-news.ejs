@@ -326,15 +326,19 @@
         const data = await res.json();
 
         if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Lajmet u shtuan!',
-            text: 'Sukses!',
-            timer: 1500,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-news');
-          });
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Lajmet u shtuan!',
+              text: 'Sukses!',
+              timer: 1500,
+              showConfirmButton: false,
+            }).then(() => {
+              location.reload();
+            });
+          } else {
+            location.reload();
+          }
         }
       });
     </script>

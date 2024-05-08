@@ -256,7 +256,7 @@
             timer: 2000,
             showConfirmButton: false,
           }).then(() => {
-            location.assign('/contact');
+            location.reload();
           });
         } else if (data.status === 'failure') {
           Swal.fire({
@@ -265,7 +265,7 @@
             text: 'Gabim',
             showConfirmButton: true,
           }).then(() => {
-            location.assign('/contact');
+            location.reload();
           });
         }
       });

@@ -189,16 +189,21 @@
     const data = await res.json();
 
     if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Plani Zhvillimor u shtua!',
-            text: 'Sukses!',
-            timer: 1500,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-plan');
-          });
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Plani Zhvillimor u shtua!',
+              text: 'Sukses!',
+              timer: 1500,
+              showConfirmButton: false,
+            }).then(() => {
+              location.reload(); 
+            });
+          } else {
+            location.reload(); 
+          }
         }
+
   }); 
   </script>
 </body>

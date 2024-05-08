@@ -20,8 +20,6 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
-        </a>
-          </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
           </div>
@@ -33,95 +31,57 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             </li>
             <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-add-role"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-pencil"></i>
-                </span>
+              <a class="sidebar-link" href="/admin-add-role" aria-expanded="false">
+                <span><i class="fa-solid fa-pencil"></i></span>
                 <span class="hide-menu">Profesionet</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="/admin-subjects" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-book"></i>
-                </span>
+                <span><i class="fa-solid fa-book"></i></span>
                 <span class="hide-menu">Lëndët</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="/admin-staff" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-user"></i>
-                </span>
+                <span><i class="fa-solid fa-user"></i></span>
                 <span class="hide-menu">Stafi</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="/admin-plan" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-file"></i>
-                </span>
+                <span><i class="fa-solid fa-file"></i></span>
                 <span class="hide-menu">Plani Zhvillimor</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="/admin-news" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-envelope"></i>
-                </span>
+                <span><i class="fa-solid fa-envelope"></i></span>
                 <span class="hide-menu">Lajmet</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-contact"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-message"></i>
-                </span>
+              <a class="sidebar-link" href="/admin-contact" aria-expanded="false">
+                <span><i class="fa-solid fa-message"></i></span>
                 <span class="hide-menu">Mesazhet e Pranuara</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-auth-edit/<%= user._id %>"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-user-pen"></i>
-                </span>
+              <a class="sidebar-link" href="/admin-auth-edit/<%= user._id %>" aria-expanded="false">
+                <span><i class="fa-solid fa-user-pen"></i></span>
                 <span class="hide-menu">Përditëso Llogarinë</span>
               </a>
             </li> 
             <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-help"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-question"></i>
-                </span>
+              <a class="sidebar-link" href="/admin-help" aria-expanded="false">
+                <span><i class="fa-solid fa-question"></i></span>
                 <span class="hide-menu">Si ta përdorni faqen</span>
               </a>
             </li> 
             <li class="sidebar-item mt-5">
-              <a
-                class="sidebar-link"
-                href="/auth/logout"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-arrow-right-from-bracket" style="color: #e72d18;"></i>
-                </span>
-                <span class="hide-menu"  style="color: #e72d18;">Shkyçuni</span>
+              <a class="sidebar-link" href="/auth/logout" aria-expanded="false">
+                <span><i class="fa-solid fa-arrow-right-from-bracket" style="color: #e72d18;"></i></span>
+                <span class="hide-menu" style="color: #e72d18;">Shkyçuni</span>
               </a>
             </li>
           </ul>
@@ -137,86 +97,87 @@
 
       <div class="container-fluid">
         <h2 style="font-size: 36px; margin-bottom: 50px">
-          Faqja për menaxhimin e
-          <b><u style="color: #5d87ff">Profesioneve</u></b> !
+          Faqja për menaxhimin e <b><u style="color: #5d87ff">Profesioneve</u></b> !
         </h2>
 
         <h3 style="margin-bottom: 40px">
           Në këtë faqe bëhet <span style="color: #5d87ff">shtimi</span>, paraqitja dhe <span style="color: #e72d18">fshirja</span> e profesioneve të punëtorve të shkollës!
         </h3> 
 
-      <div class="d-flex justify-content-center">
-        <div class="container-fluid">
+        <div class="d-flex justify-content-center">
+          <div class="container-fluid">
 
-          <form action="/role/register-role" id="roleForm" method="post">
-            <div class="mb-3">
-              <label for="roleName" class="form-label">Profesioni</label>
-              <input type="text" class="form-control" id="roleName" aria-describedby="roleNameHelp" placeholder="Shembull: Psikolog/e">
-            </div>
-            <button type="submit" class="btn btn-primary">Shto</button>
-          </form>
-                                        
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Nr.</th>
-              <th>Emri i Profesionit</th>
-              <th>Opsione</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
+            <form action="/role/register-role" id="roleForm" method="post">
+              <div class="mb-3">
+                <label for="roleName" class="form-label">Profesioni</label>
+                <input type="text" class="form-control" id="roleName" aria-describedby="roleNameHelp" placeholder="Shembull: Psikolog/e">
+              </div>
+              <button type="submit" class="btn btn-primary">Shto</button>
+            </form>
+                                          
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nr.</th>
+                  <th>Emri i Profesionit</th>
+                  <th>Opsione</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--  Header Start -->
+
+        <!--  Header End -->
+
       </div>
-    </div>      <!--  Header Start -->
-
-      <!--  Header End -->
-  
     </div>
-  </div>
-  <script src="/js/addRoleList.js"></script>
-  <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
-  <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/css/admin-js/sidebarmenu.js"></script>
-  <script src="/css/admin-js/app.min.js"></script>
-  <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script>
-    const roleForm = document.getElementById('roleForm');
+    <script src="/js/addRoleList.js"></script>
+    <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
+    <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/admin-js/sidebarmenu.js"></script>
+    <script src="/css/admin-js/app.min.js"></script>
+    <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      const roleForm = document.getElementById('roleForm');
 
-    roleForm.addEventListener('submit', async(e)=> {
-    e.preventDefault();
-    const roleName = document.getElementById('roleName').value;
+      roleForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const roleName = document.getElementById('roleName').value;
 
-    const res = await fetch('/role/register-role', {
-        method: 'POST',
-        body: JSON.stringify({
-          id: e.target.id,
-          roleName: roleName,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+        const res = await fetch('/role/register-role', {
+          method: 'POST',
+          body: JSON.stringify({
+            id: e.target.id,
+            roleName: roleName,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Profesioni u shtua!',
-            text: 'Sukses!',
-            timer: 1500,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-add-role');
-          });
-        } else {
-          alert('faggot ass nigga')
+        if (data.status === 'success') {
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Profesioni u shtua!',
+              text: 'Sukses!',
+              timer: 1500,
+              showConfirmButton: false,
+            }).then(() => {
+              location.reload(); 
+            });
+          } else {
+            location.reload(); 
+          }
         }
-  }); 
-  </script>
-</body>
 
+      });
+    </script>
+  </body>
 </html>
-

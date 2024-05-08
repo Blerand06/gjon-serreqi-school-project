@@ -102,7 +102,7 @@
                 <h1 class="text-primary mt-2">1999</h1>
                 <h5 class="mb-3">U bë lufta</h5>
                 <p>
-                  Shkolla u okupua nga forcat serbe, por nuk pësoi shkolla shumë
+                  Shkolla u okupua nga forcat serbe, por nuk pësoi shumë
                   dëmtime.
                 </p>
               </div>
@@ -193,35 +193,32 @@
         </div>
 
         <div class="container-fluid p-0 mb-5">
-          <div
-            class="owl-carousel header-carousel position-relative text-center"
-            style="
-              width: 700px;
-              height: 600px;
-              display: flex;
-              justify-content: center;
-            "
-          >
-            <% for(let i = 0; i < plan.length; i++){%>
-            <div class="owl-carousel-item position-relative text-center">
-              <img
-                class="img-fluid"
-                src="/uploads/<%= plan[i].planDocument %>"
-              />
-              <div
-                class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(118, 118, 118, 0.7)"
-              >
-                <div class="container">
-                  <div class="row justify-content-start"></div>
+          <div class="row justify-content-center">
+            <div
+              class="owl-carousel header-carousel position-relative text-center"
+            >
+              <% for(let i = 0; i < plan.length; i++){ %>
+              <div class="owl-carousel-item position-relative text-center">
+                <img
+                  class="img-fluid"
+                  src="/uploads/<%= plan[i].planDocument %>"
+                />
+                <div
+                  class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                  style="background: rgba(118, 118, 118, 0.7)"
+                >
+                  <div class="container">
+                    <div class="row justify-content-start"></div>
+                  </div>
                 </div>
               </div>
+              <% } %>
             </div>
-            <%}%>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Service End -->
 
     <%- include('includes/_footer') %>

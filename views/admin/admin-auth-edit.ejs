@@ -243,15 +243,19 @@
         const data = await res.json();
 
         if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Të dhënat tuaja u ndryshuan!',
-            text: 'Sukses!',
-            timer: 2000,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-subjects');
-          });
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Të dhënat tuaja u ndryshuan!',
+              text: 'Sukses!',
+              timer: 2000,
+              showConfirmButton: false,
+            }).then(() => {
+              location.reload();
+            });
+          } else {
+            location.reload();
+          }
         }
       });
     </script>

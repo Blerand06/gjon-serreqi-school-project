@@ -184,16 +184,21 @@
     const data = await res.json();
 
     if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Plani Zhvillimor u ndryshua!',
-            text: 'Sukses!',
-            timer: 2000,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-plan');
-          });
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Plani Zhvillimor u ndryshua!',
+              text: 'Sukses!',
+              timer: 1000,
+              showConfirmButton: false,
+            }).then(() => {
+              location.assign('/admin-plan'); 
+            });
+          } else {
+            location.assign('/admin-plan'); 
+          }
         }
+
   }); 
   </script>
 </body>

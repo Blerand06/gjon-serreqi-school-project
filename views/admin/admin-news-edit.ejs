@@ -298,15 +298,19 @@
         const data = await res.json();
 
         if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Lajmet u ndryshuan!',
-            text: 'Sukses!',
-            timer: 1000,
-            showConfirmButton: false,
-          }).then(() => {
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Lajmet u ndryshuan!',
+              text: 'Sukses!',
+              timer: 1000,
+              showConfirmButton: true,
+            }).then(() => {
+              location.assign('/admin-news');
+            });
+          } else {
             location.assign('/admin-news');
-          });
+          }
         }
       });
     </script>

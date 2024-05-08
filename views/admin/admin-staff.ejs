@@ -236,16 +236,21 @@
     const data = await res.json();
 
     if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: 'Punonjësi u shtua!',
-            text: 'Sukses!',
-            timer: 1500,
-            showConfirmButton: false,
-          }).then(() => {
-            location.assign('/admin-staff');
-          });
+          if (typeof Swal !== 'undefined') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Punonjësi u shtua!',
+              text: 'Sukses!',
+              timer: 1500,
+              showConfirmButton: false,
+            }).then(() => {
+              location.reload(); 
+            });
+          } else {
+            location.reload(); 
+          }
         }
+
   }); 
   </script>
 </body>
