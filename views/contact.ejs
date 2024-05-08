@@ -246,7 +246,6 @@
           },
         });
         const data = await res.json();
-        console.log(data);
 
         if (data.status === 'success') {
           Swal.fire({
@@ -267,6 +266,8 @@
           }).then(() => {
             location.reload();
           });
+        } else {
+          location.reload();
         }
       });
     </script>
