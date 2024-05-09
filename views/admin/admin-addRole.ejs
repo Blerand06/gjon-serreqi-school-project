@@ -112,6 +112,20 @@
                 <label for="roleName" class="form-label">Profesioni</label>
                 <input type="text" class="form-control" id="roleName" aria-describedby="roleNameHelp" placeholder="Shembull: Psikolog/e">
               </div>
+              <div class="mb-3">
+                <label for="roleName" class="form-label">Në rast se profesioni juaj është i profesionit të arsimtarit, klikoni katrorin e vogël poshtë</label>
+                <div class="row">
+                  <div class="col d-flex">
+                    <label class="form-check-label" for="roleChecker">Katrori në të djatht -></label>
+                    <div class="col-auto ms-2">
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="roleChecker" aria-describedby="roleNameHelp">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <button type="submit" class="btn btn-primary">Shto</button>
             </form>
                                           
@@ -147,12 +161,14 @@
       roleForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const roleName = document.getElementById('roleName').value;
+        const roleChecker = document.getElementById('roleChecker').checked;
 
         const res = await fetch('/role/register-role', {
           method: 'POST',
           body: JSON.stringify({
             id: e.target.id,
             roleName: roleName,
+            roleChecker: roleChecker
           }),
           headers: {
             'Content-Type': 'application/json',
@@ -170,10 +186,10 @@
               timer: 1500,
               showConfirmButton: false,
             }).then(() => {
-              location.reload(); 
+              location.assign('/admin-add-role'); 
             });
           } else {
-            location.reload(); 
+            location.assign('/admin-add-role'); 
           }
         }
 

@@ -11,12 +11,10 @@ const subjectsSchema = mongoose.Schema(
     },
     subjectCycle: {
       type: String,
-      enum: ['I ulët', 'I lartë', 'Të gjithët'],
       required: true,
     },
     subjectClass: {
       type: String,
-      enum: ['I-IX', 'II-IX', 'VI-IX', 'I-V', 'VII-IX'],
       required: true,
     },
   },

@@ -173,7 +173,7 @@
               <% } %>
               </select>
 
-                <label id="subject-placeholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
+                <label id="subjectPlaceholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
                 <select id="staff-subject" style="border: none; padding: 5px;">
                   <% for (let i = 0; i < subject.length ; i++) { %>
                     <option value="<%= subject[i].subjectName %>"><%= subject[i].subjectName %></option>
@@ -244,15 +244,14 @@
               timer: 1500,
               showConfirmButton: false,
             }).then(() => {
-              location.reload(); 
+              location.assign('/admin-staff'); 
             });
           } else {
-            location.reload(); 
+            location.assign('/admin-staff'); 
           }
         }
 
   }); 
   </script>
 </body>
-
 </html>

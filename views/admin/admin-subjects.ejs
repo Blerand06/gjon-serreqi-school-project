@@ -243,14 +243,44 @@
               timer: 1500,
               showConfirmButton: false,
             }).then(() => {
-              location.reload(); 
+              location.assign('/admin-subjects'); 
             });
           } else {
-            location.reload(); 
+            location.assign('/admin-subjects'); 
           }
         }
 
   }); 
   </script>
+  <script>
+    const cycleSelect = document.getElementById('Cycle');
+    const classSelect = document.getElementById('Class');
+    
+    // Define the available options for each cycle
+    const optionsByCycle = {
+        "I ulët": ["I-V"],
+        "I lartë": ["VI-IX", "VII-IX"],
+        "Të gjithët": ["I-IX", "II-IX"]
+    };
+
+    cycleSelect.addEventListener('change', function() {
+        const selectedCycle = cycleSelect.value;
+        const availableOptions = optionsByCycle[selectedCycle];
+        
+        classSelect.innerHTML = '';
+
+        availableOptions.forEach(function(optionValue) {
+            const option = document.createElement('option');
+            option.value = option.textContent = optionValue;
+            classSelect.appendChild(option);
+        });
+
+        const event = new Event('change');
+        classSelect.dispatchEvent(event);
+    });
+
+    const initialEvent = new Event('change');
+    cycleSelect.dispatchEvent(initialEvent);
+</script>
 </body>
 </html>
