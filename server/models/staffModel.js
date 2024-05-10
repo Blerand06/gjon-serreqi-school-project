@@ -6,6 +6,10 @@ const staffSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    staffCategory: {
+      type: String,
+      required: true,
+    },
     staffPhoto: {
       type: String,
     },
@@ -17,10 +21,6 @@ const staffSchema = mongoose.Schema(
       required: true,
     },
     staffSubject: {
-      type: String,
-      required: true,
-    },
-    staffCategory: {
       type: String,
       required: true,
     },

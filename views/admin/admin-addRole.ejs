@@ -97,7 +97,7 @@
 
       <div class="container-fluid">
         <h2 style="font-size: 36px; margin-bottom: 50px">
-          Faqja për menaxhimin e <b><u style="color: #5d87ff">Profesioneve</u></b> !
+          Faqja për menaxhimin e <b><a href="/staff" target="_blank"><u style="color: #5d87ff">Profesioneve</u></b> !</a>
         </h2>
 
         <h3 style="margin-bottom: 40px">
@@ -112,7 +112,7 @@
                 <label for="roleName" class="form-label">Profesioni</label>
                 <input type="text" class="form-control" id="roleName" aria-describedby="roleNameHelp" placeholder="Shembull: Psikolog/e">
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="roleName" class="form-label">Në rast se profesioni juaj është i profesionit të arsimtarit, klikoni katrorin e vogël poshtë</label>
                 <div class="row">
                   <div class="col d-flex">
@@ -124,7 +124,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <button type="submit" class="btn btn-primary">Shto</button>
             </form>
@@ -161,14 +161,12 @@
       roleForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const roleName = document.getElementById('roleName').value;
-        const roleChecker = document.getElementById('roleChecker').checked;
 
         const res = await fetch('/role/register-role', {
           method: 'POST',
           body: JSON.stringify({
             id: e.target.id,
             roleName: roleName,
-            roleChecker: roleChecker
           }),
           headers: {
             'Content-Type': 'application/json',

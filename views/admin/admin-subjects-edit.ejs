@@ -1,209 +1,273 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paneli i të dhënave</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/css/admin-img/logos/logo-skolla.png"
+    />
+    <link rel="stylesheet" href="/css/admin-css/styles.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paneli i të dhënave</title>
-  <link rel="shortcut icon" type="image/png" href="/css/admin-img/logos/logo-skolla.png" />
-  <link rel="stylesheet" href="/css/admin-css/styles.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-
-<body>
-  <!--  Body Wrapper -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
-    <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
-      <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-            <img src="/css/admin-img/logos/logo-skolla.png" height="190px" width="190px" alt=""/>
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
+  <body>
+    <!--  Body Wrapper -->
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin6"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+    >
+      <!-- Sidebar Start -->
+      <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div>
+          <div
+            class="brand-logo d-flex align-items-center justify-content-between"
+          >
+            <img
+              src="/css/admin-img/logos/logo-skolla.png"
+              height="190px"
+              width="190px"
+              alt=""
+            />
+            <div
+              class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
+              id="sidebarCollapse"
+            >
+              <i class="ti ti-x fs-8"></i>
+            </div>
           </div>
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-add-role"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-pencil"></i>
+                  </span>
+                  <span class="hide-menu">Profesionet</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-subjects"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-book"></i>
+                  </span>
+                  <span class="hide-menu">Lëndët</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-staff"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-user"></i>
+                  </span>
+                  <span class="hide-menu">Stafi</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-plan"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-file"></i>
+                  </span>
+                  <span class="hide-menu">Plani Zhvillimor</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-news"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-envelope"></i>
+                  </span>
+                  <span class="hide-menu">Lajmet</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-contact"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-message"></i>
+                  </span>
+                  <span class="hide-menu">Mesazhet e Pranuara</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-auth-edit/<%= user._id %>"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-user-pen"></i>
+                  </span>
+                  <span class="hide-menu">Përditëso Llogarinë</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="/admin-help"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="fa-solid fa-question"></i>
+                  </span>
+                  <span class="hide-menu">Si ta përdorni faqen</span>
+                </a>
+              </li>
+              <li class="sidebar-item mt-5">
+                <a
+                  class="sidebar-link"
+                  href="/auth/logout"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i
+                      class="fa-solid fa-arrow-right-from-bracket"
+                      style="color: #e72d18"
+                    ></i>
+                  </span>
+                  <span class="hide-menu" style="color: #e72d18">Shkyçuni</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
         </div>
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-          <ul id="sidebarnav">
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-            </li>
-            <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-add-role"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-pencil"></i>
-                </span>
-                <span class="hide-menu">Profesionet</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/admin-subjects" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-book"></i>
-                </span>
-                <span class="hide-menu">Lëndët</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/admin-staff" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-user"></i>
-                </span>
-                <span class="hide-menu">Stafi</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/admin-plan" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-file"></i>
-                </span>
-                <span class="hide-menu">Plani Zhvillimor</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="/admin-news" aria-expanded="false">
-                <span>
-                  <i class="fa-solid fa-envelope"></i>
-                </span>
-                <span class="hide-menu">Lajmet</span>
-              </a>
-            </li>  
-            <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-contact"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-message"></i>
-                </span>
-                <span class="hide-menu">Mesazhet e Pranuara</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-auth-edit/<%= user._id %>"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-user-pen"></i>
-                </span>
-                <span class="hide-menu">Përditëso Llogarinë</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a
-                class="sidebar-link"
-                href="/admin-help"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-question"></i>
-                </span>
-                <span class="hide-menu">Si ta përdorni faqen</span>
-              </a>
-            </li>      
-            <li class="sidebar-item mt-5">
-              <a
-                class="sidebar-link"
-                href="/auth/logout"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa-solid fa-arrow-right-from-bracket" style="color: #e72d18;"></i>
-                </span>
-                <span class="hide-menu"  style="color: #e72d18;">Shkyçuni</span>
-              </a>
-            </li>   
-          </ul>
-        </nav>
-        <!-- End Sidebar navigation -->
-      </div>
-      <!-- End Sidebar scroll-->
-    </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
-    <div class="body-wrapper">
-
-      <div class="container-fluid">
-        <h2 style="font-size: 36px; margin-bottom: 50px">
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="body-wrapper">
+        <div class="container-fluid">
+          <h2 style="font-size: 36px; margin-bottom: 50px">
             Ju tani po <u style="color: #da930e">ndryshoni</u> Lëndët!
           </h2>
           <h3 style="font-size: 20px; margin-bottom: 35px">
-            <b>Informatë</b>: Ju mund të ndryshoni Lëndën, Ikonën, Ciklin dhe Klasët, apo vetëm njëren prej tyre nëse dëshironi.
+            <b>Informatë</b>: Ju mund të ndryshoni Lëndën, Ikonën, Ciklin dhe
+            Klasët, apo vetëm njëren prej tyre nëse dëshironi.
           </h3>
-        <form id="subjectsForm" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Emri i Lëndës</label>
-            <input value="<%= subject.subjectName %>" type="text" class="form-control" id="Subject-Name" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Ikona</label>
-            <input value="<%= subject.subjectIcon %>" type="file" class="form-control" id="Icon" aria-describedby="emailHelp" name="iconImage">
-          </div>
-          <div class="d-flex">
-            <label class="me-1 mt-1" for="ciklet">Cikli:</label>
-            <select required name="Cycle" id="Cycle" style="border: none; padding: 5px;">
-                <option value="I ulët" <%= subject.subjectCycle === "I ulët" ? "selected" : "" %>>I ulët</option>
-                <option value="I lartë" <%= subject.subjectCycle === "I lartë" ? "selected" : "" %>>I lartë</option>
-                <option value="Të gjithët" <%= subject.subjectCycle === "Të gjithët" ? "selected" : "" %>>Të gjithët</option>
-            </select>
-        
-            <label class="ms-4 me-1 mt-1" for="ciklet">Klasët</label>
-            <select required name="Class" id="Class" style="border: none; padding: 5px;">
-                <option value="I-IX" <%= subject.subjectClass === "I-IX" ? "selected" : "" %>>I - IX</option>
-                <option value="II-IX" <%= subject.subjectClass === "II-IX" ? "selected" : "" %>>II - IX</option>
-                <option value="VI-IX" <%= subject.subjectClass === "VI-IX" ? "selected" : "" %>>VI - IX</option>
-                <option value="I-V" <%= subject.subjectClass === "I-V" ? "selected" : "" %>>I - V</option>
-                <option value="VII-IX" <%= subject.subjectClass === "VII-IX" ? "selected" : "" %>>VII - IX</option>
-            </select>
-          </div>
-          <div class=" form-check">
-          </div>
-          <button type="submit" class="btn btn-primary mb-5">Ndrysho</button>
-        </form>
+          <form id="subjectsForm" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Emri i Lëndës</label
+              >
+              <input
+                value="<%= subject.subjectName %>"
+                type="text"
+                class="form-control"
+                id="Subject-Name"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Ikona</label>
+              <input
+                value="<%= subject.subjectIcon %>"
+                type="file"
+                class="form-control"
+                id="Icon"
+                aria-describedby="emailHelp"
+                name="iconImage"
+              />
+            </div>
+            <div class="d-flex">
+              <label class="me-1 mt-1" for="ciklet">Cikli:</label>
+              <select
+                required
+                name="Cycle"
+                id="Cycle"
+                style="border: none; padding: 5px; border-radius: 6px"
+              >
+                <option value="I ulët">I ulët</option>
+                <option value="I lartë">I lartë</option>
+                <option value="Kombinim">Kombinim</option>
+              </select>
+              <label class="ms-4 me-1 mt-1" for="ciklet">Klasët</label>
+              <select
+                required
+                name="Class"
+                id="Class"
+                style="border: none; padding: 5px; border-radius: 6px"
+              >
+                <option value="I-IX">I - IX</option>
+                <option value="II-IX">II - IX</option>
+                <option value="VI-IX">VI - IX</option>
+                <option value="I-V">I - V</option>
+                <option value="VII-IX">VII - IX</option>
+              </select>
+            </div>
+            <div class="form-check"></div>
+            <button type="submit" class="btn btn-primary mb-5">Ndrysho</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
-  <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/css/admin-js/sidebarmenu.js"></script>
-  <script src="/css/admin-js/app.min.js"></script>
-  <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script>
-    const subjectsForm = document.getElementById('subjectsForm');
+    <script src="/css/admin-lib/jquery/dist/jquery.min.js"></script>
+    <script src="/css/admin-lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/admin-js/sidebarmenu.js"></script>
+    <script src="/css/admin-js/app.min.js"></script>
+    <script src="/css/admin-lib/simplebar/dist/simplebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      const subjectsForm = document.getElementById('subjectsForm');
 
-    subjectsForm.addEventListener('submit', async(e)=> {
-    e.preventDefault();
-    const formData = new FormData()
-    
-    const subjectName = document.getElementById('Subject-Name').value;
-    const subjectIcon = document.getElementById('Icon').files[0];
-    const subjectCycle = document.getElementById('Cycle').value;
-    const subjectClass = document.getElementById('Class').value;  
+      subjectsForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
 
-    formData.append('id',location.pathname.split('/')[2])
-    formData.append('subjectName',subjectName)
-    formData.append('subjectCycle',subjectCycle)
-    formData.append('subjectClass',subjectClass)
-    formData.append('iconImage',subjectIcon)
-      
+        const subjectName = document.getElementById('Subject-Name').value;
+        const subjectIcon = document.getElementById('Icon').files[0];
+        const subjectCycle = document.getElementById('Cycle').value;
+        const subjectClass = document.getElementById('Class').value;
 
-    const res = await fetch('/subjects/update-subjects', {
-      method: 'PUT', 
-      body: formData      
-    });
-    const data = await res.json();
+        formData.append('id', location.pathname.split('/')[2]);
+        formData.append('subjectName', subjectName);
+        formData.append('subjectCycle', subjectCycle);
+        formData.append('subjectClass', subjectClass);
+        formData.append('iconImage', subjectIcon);
 
-    if (data.status === 'success') {
+        const res = await fetch('/subjects/update-subjects', {
+          method: 'PUT',
+          body: formData,
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
           if (typeof Swal !== 'undefined') {
             Swal.fire({
               icon: 'success',
@@ -218,8 +282,36 @@
             location.assign('/admin-subjects');
           }
         }
+      });
+    </script>
+    <script>
+      const cycleSelect = document.getElementById('Cycle');
+      const classSelect = document.getElementById('Class');
 
-  }); 
-  </script>
-</body>
+      const optionsByCycle = {
+        'I ulët': ['I-V'],
+        'I lartë': ['VI-IX', 'VII-IX'],
+        Kombinim: ['I-IX', 'II-IX'],
+      };
+
+      cycleSelect.addEventListener('change', function () {
+        const selectedCycle = cycleSelect.value;
+        const availableOptions = optionsByCycle[selectedCycle];
+
+        classSelect.innerHTML = '';
+
+        availableOptions.forEach(function (optionValue) {
+          const option = document.createElement('option');
+          option.value = option.textContent = optionValue;
+          classSelect.appendChild(option);
+        });
+
+        const event = new Event('change');
+        classSelect.dispatchEvent(event);
+      });
+
+      const initialEvent = new Event('change');
+      cycleSelect.dispatchEvent(initialEvent);
+    </script>
+  </body>
 </html>

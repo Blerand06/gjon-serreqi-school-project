@@ -122,7 +122,9 @@ const adminPlanPageEdit = async (req, res) => {
 const adminStaffPageEdit = async (req, res) => {
   try {
     const staff = await Staff.findById(req.params.id);
-    res.render('admin/admin-staff-edit', { staff });
+    const subject = await Subject.find();
+    const role = await Role.find();
+    res.render('admin/admin-staff-edit', { staff, subject, role });
   } catch (error) {
     res.redirect('back');
   }

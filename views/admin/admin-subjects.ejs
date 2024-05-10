@@ -135,10 +135,10 @@
     <div class="body-wrapper">
 
       <div class="container-fluid">
-        <a href="/"><h2 style="font-size: 36px; margin-bottom: 25px">
+        <h2 style="font-size: 36px; margin-bottom: 25px">
           Faqja për menaxhimin e
-          <b><u style="color: #5d87ff">Lëndëve</u></b> !
-        </h2></a>   
+          <b><u style="color: #5d87ff"><a href="/#subjectRedirect" target="_blank">Lëndëve</a></u></b> !
+        </h2>  
         <h3 style="margin-bottom: 40px;">Në këtë faqe bëhet <span style="color:#5d87ff ;">shtimi</span> dhe paraqitja e lëndëve. Pranë tyre, janë gjithashtu mundësitë për <span style="color: orange;">ndryshimin</span> ose <span style="color: #e72d18;">fshirjen</span> e tyre.</h3>
         <form action="/subjects/register-subjects" id="subjectsForm" method="post" enctype="multipart/form-data">
           
@@ -165,13 +165,13 @@
           <div class="d-flex">
             <label class="me-1 mt-1" for="ciklet">Cikli:</label>
             <select required name="Cycle" id="Cycle" style="border: none; padding: 5px; border-radius: 6px;">
-              <option value="I ulët" selected>I ulët</option>
+              <option value="I ulët">I ulët</option>
               <option value="I lartë">I lartë</option>
-              <option value="Të gjithët">Të gjithët</option>
+              <option value="Kombinim">Kombinim</option>
             </select>
             <label class="ms-4 me-1 mt-1" for="ciklet">Klasët</label>
             <select required name="Class" id="Class" style="border: none; padding: 5px; border-radius: 6px;">
-              <option value="I-IX" selected>I - IX</option>
+              <option value="I-IX">I - IX</option>
               <option value="II-IX">II - IX</option>
               <option value="VI-IX">VI - IX</option>
               <option value="I-V">I - V</option>
@@ -256,11 +256,10 @@
     const cycleSelect = document.getElementById('Cycle');
     const classSelect = document.getElementById('Class');
     
-    // Define the available options for each cycle
     const optionsByCycle = {
         "I ulët": ["I-V"],
         "I lartë": ["VI-IX", "VII-IX"],
-        "Të gjithët": ["I-IX", "II-IX"]
+        "Kombinim": ["I-IX", "II-IX"]
     };
 
     cycleSelect.addEventListener('change', function() {

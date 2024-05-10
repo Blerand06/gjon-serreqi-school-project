@@ -8,7 +8,6 @@ const contactSchema = mongoose.Schema(
     },
     contactTitle: {
       type: String,
-      required: true,
     },
     contactMessage: {
       type: String,

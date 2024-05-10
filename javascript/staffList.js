@@ -17,6 +17,7 @@ const getStaff = async () => {
         <td>${staffCVCheck}</td>
         <td>${Staff[i].staffRole}</td>
         <td>${Staff[i].staffCategory}</td>
+        <td>${Staff[i].staffSubject}</td>
         <td class="primary d-flex">
                                 <a href="/admin-staff/${
                                   Staff[i]._id

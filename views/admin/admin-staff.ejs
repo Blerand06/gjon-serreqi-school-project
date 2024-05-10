@@ -137,7 +137,7 @@
       <div class="container-fluid">
         <h2 style="font-size: 36px; margin-bottom: 25px">
           Faqja për menaxhimin e
-          <b><u style="color: #5d87ff">Stafit</u></b> !
+          <b><u style="color: #5d87ff"><a href="/staff" target="_blank">Stafit</a></u></b> !
         </h2>
 
         <h3 style="margin-bottom: 40px;">Në këtë faqe bëhet <span style="color:#5d87ff ;">shtimi</span> dhe paraqitja e stafit. Pranë tyre, janë gjithashtu mundësitë për <span style="color: orange;">ndryshimin</span> ose <span style="color: #e72d18;">fshirjen</span> e tyre.</h3>
@@ -175,6 +175,8 @@
 
                 <label id="subjectPlaceholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
                 <select id="staff-subject" style="border: none; padding: 5px;">
+                  <option value="Nuk ka lëndë" selected>Nuk ka lëndë</option>
+                  <option value="Ka shumë lëndë" selected>Ka shumë lëndë</option>
                   <% for (let i = 0; i < subject.length ; i++) { %>
                     <option value="<%= subject[i].subjectName %>"><%= subject[i].subjectName %></option>
                     <% } %>
@@ -193,6 +195,7 @@
               <th>CV-ja</th>
               <th>Profesioni</th>
               <th>Kategoria e Profesionit</th>
+              <th>Lënda</th>
               <th>Opsione</th>
             </tr>
           </thead>
