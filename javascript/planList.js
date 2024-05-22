@@ -34,19 +34,37 @@ const getPlan = async () => {
   const deleteButtons = document.querySelectorAll('[delete="true"]');
   deleteButtons.forEach((element) => {
     element.addEventListener('click', async (event) => {
-      const res = await fetch('/plan/delete-plan', {
-        method: 'DELETE',
-        body: JSON.stringify({
-          id: event.target.id,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const result = await Swal.fire({
+        title: 'Jeni të sigurt që dëshironi ta fshini?',
+        icon: 'warning',
+        iconColor: '#e72d18',
+        showCancelButton: true,
+        confirmButtonText: 'Fshini',
+        cancelButtonText: 'Anuloje',
       });
-      const data = await res.json();
 
-      if (data.status === 'success') {
-        getPlan();
+      if (result.isConfirmed) {
+        const res = await fetch('/plan/delete-plan', {
+          method: 'DELETE',
+          body: JSON.stringify({
+            id: event.target.id,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+          getPlan();
+          Swal.fire('Fshirë!', 'Plani është fshirë me sukses.', 'success');
+        } else {
+          Swal.fire(
+            'Gabim!',
+            'Ka ndodhur një gabim gjatë fshirjes së planit.',
+            'error'
+          );
+        }
       }
     });
   });

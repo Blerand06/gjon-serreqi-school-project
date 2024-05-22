@@ -175,8 +175,8 @@
 
                 <label id="subjectPlaceholder" class="ms-4 me-1 mt-1" for="ciklet">Lënda:</label>
                 <select id="staff-subject" style="border: none; padding: 5px;">
-                  <option value="Nuk ka lëndë" selected>Nuk ka lëndë</option>
-                  <option value="Ka shumë lëndë" selected>Ka shumë lëndë</option>
+                  <option value="Nuk ka lëndë" style="background-color: #e72d18; color: white;" selected>Nuk ka lëndë</option>
+                  <option value="Ka shumë lëndë" style="background-color: #21b400; color: white;" selected>Ka shumë lëndë</option>
                   <% for (let i = 0; i < subject.length ; i++) { %>
                     <option value="<%= subject[i].subjectName %>"><%= subject[i].subjectName %></option>
                     <% } %>

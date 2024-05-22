@@ -50,19 +50,44 @@ const getContact = async () => {
   const deleteButtons = document.querySelectorAll('[delete="true"]');
   deleteButtons.forEach((element) => {
     element.addEventListener('click', async (event) => {
-      const res = await fetch('/contact/delete-contact', {
-        method: 'DELETE',
-        body: JSON.stringify({
-          id: event.target.id,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
+      const result = await Swal.fire({
+        title: 'Jeni të sigurt që dëshironi ta fshini?',
+        icon: 'warning',
+        iconColor: '#e72d18',
+        showCancelButton: true,
+        confirmButtonText: 'Fshini',
+        cancelButtonText: 'Anuloje',
+        customClass: {
+          confirmButton: 'swal-confirm-button-red',
         },
       });
-      const data = await res.json();
 
-      if (data.status === 'success') {
-        getContact();
+      if (result.isConfirmed) {
+        const res = await fetch('/contact/delete-contact', {
+          method: 'DELETE',
+          body: JSON.stringify({
+            id: event.target.id,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+          getContact();
+          Swal.fire(
+            'Fshirë!',
+            'Emaili i dërguar është fshirë me sukses.',
+            'success'
+          );
+        } else {
+          Swal.fire(
+            'Gabim!',
+            'Ka ndodhur një gabim gjatë fshirjes së emailit të dërguar.',
+            'error'
+          );
+        }
       }
     });
   });
